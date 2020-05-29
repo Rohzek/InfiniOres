@@ -1,5 +1,7 @@
 package com.gmail.rohzek.infiniores;
 
+import java.io.File;
+
 import com.gmail.rohzek.infiniores.blocks.Ores;
 import com.gmail.rohzek.infiniores.lib.Reference;
 import com.gmail.rohzek.infiniores.proxy.CommonProxy;
@@ -27,6 +29,7 @@ public class InfiniOres
 	public static void PreLoad(FMLPreInitializationEvent preEvent) 
 	{
 		LogHelper.logger = preEvent.getModLog();
+		Reference.LOCATION = new File(preEvent.getModConfigurationDirectory().getAbsolutePath() + "/" + Reference.MODID);
 		ConfigurationManager.Load(preEvent);
 		
 		Ores.registerTileEntities();

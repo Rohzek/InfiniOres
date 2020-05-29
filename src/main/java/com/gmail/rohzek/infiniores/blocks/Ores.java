@@ -26,6 +26,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 @ObjectHolder(Reference.MODID)
 public class Ores 
 {
+	public static DepletedOre DEPLETED_ORE = new DepletedOre(Ores.DEPLETED_ORE, "depleted_ore", 0);
 	public static DepletedOre COAL_ORE = new DepletedOre(Blocks.COAL_ORE, "depleted_ore_coal", 0);
 	public static DepletedOre DIAMOND_ORE = new DepletedOre(Blocks.DIAMOND_ORE, "depleted_ore_diamond", 2);
 	public static DepletedOre EMERALD_ORE = new DepletedOre(Blocks.EMERALD_ORE, "depleted_ore_emerald", 2);
@@ -36,6 +37,7 @@ public class Ores
 	
 	public static List<DepletedOre> DEPLETED_ORES = Arrays.asList(new DepletedOre[] 
 	{
+			DEPLETED_ORE,
 			COAL_ORE,
 			DIAMOND_ORE,
 			EMERALD_ORE,
@@ -48,7 +50,7 @@ public class Ores
 	static Block[] blocks;
 	
 	public static void registerRenders() 
-	{
+	{	
 		for(DepletedOre ore : DEPLETED_ORES)
 		{
 			registerRender(ore);
