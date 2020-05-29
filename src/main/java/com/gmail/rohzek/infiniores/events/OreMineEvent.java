@@ -1,12 +1,13 @@
 package com.gmail.rohzek.infiniores.events;
 
 import com.gmail.rohzek.infiniores.blocks.Ores;
+import com.gmail.rohzek.infiniores.util.ConfigurationManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.init.Blocks;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -21,57 +22,57 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class OreMineEvent 
 {
 	@SubscribeEvent
-	public static void onModelRegistry(BlockEvent.BreakEvent event) 
+	public static void onBlockBreak(BlockEvent.BreakEvent event) 
 	{
-		if(!event.getPlayer().capabilities.isCreativeMode) 
+		World world = event.getWorld();
+		
+		if(!world.isRemote) 
 		{
-			World world = event.getWorld();
-			BlockPos pos = event.getPos();
-			IBlockState state = event.getState();
-			Block block = event.getState().getBlock();
-			ItemStack stack = event.getPlayer().inventory.getCurrentItem();
-			int fortune = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
-			
-			NonNullList<ItemStack> drops = NonNullList.create();
-			
-			if(block == Blocks.COAL_ORE) 
+			if(!event.getPlayer().capabilities.isCreativeMode) 
 			{
-				EventBlock(event, block, Ores.COAL_ORE.getDefaultState(), drops, world, pos, state, fortune);
-			}
-			
-			if(block == Blocks.DIAMOND_ORE) 
-			{
-				EventBlock(event, block, Ores.DIAMOND_ORE.getDefaultState(), drops, world, pos, state, fortune);
-			}
-			
-			if(block == Blocks.EMERALD_ORE) 
-			{
-				EventBlock(event, block, Ores.EMERALD_ORE.getDefaultState(), drops, world, pos, state, fortune);
-			}
-			
-			if(block == Blocks.GOLD_ORE) 
-			{
-				EventBlock(event, block, Ores.GOLD_ORE.getDefaultState(), drops, world, pos, state, fortune);
-			}
-			
-			if(block == Blocks.IRON_ORE) 
-			{
-				EventBlock(event, block, Ores.IRON_ORE.getDefaultState(), drops, world, pos, state, fortune);
-			}
-			
-			if(block == Blocks.LAPIS_ORE) 
-			{
-				EventBlock(event, block, Ores.LAPIS_ORE.getDefaultState(), drops, world, pos, state, fortune);
-			}
-			
-			if(block == Blocks.REDSTONE_ORE) 
-			{
-				EventBlock(event, block, Ores.REDSTONE_ORE.getDefaultState(), drops, world, pos, state, fortune);
-			}
-			
-			if(block == Blocks.LIT_REDSTONE_ORE)
-			{
-				EventBlock(event, block, Ores.REDSTONE_ORE.getDefaultState(), drops, world, pos, state, fortune);
+				
+				BlockPos pos = event.getPos();
+				IBlockState state = event.getState();
+				Block block = event.getState().getBlock();
+				ItemStack stack = event.getPlayer().inventory.getCurrentItem();
+				int fortune = EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack);
+				
+				NonNullList<ItemStack> drops = NonNullList.create();
+				
+				if(block == Block.getBlockFromName(ConfigurationManager.coal_block_spawn)) 
+				{
+					EventBlock(event, block, Ores.COAL_ORE.getDefaultState(), drops, world, pos, state, fortune);
+				}
+				
+				if(block == Block.getBlockFromName(ConfigurationManager.diamond_block_spawn)) 
+				{
+					EventBlock(event, block, Ores.DIAMOND_ORE.getDefaultState(), drops, world, pos, state, fortune);
+				}
+				
+				if(block == Block.getBlockFromName(ConfigurationManager.emerald_block_spawn)) 
+				{
+					EventBlock(event, block, Ores.EMERALD_ORE.getDefaultState(), drops, world, pos, state, fortune);
+				}
+				
+				if(block == Block.getBlockFromName(ConfigurationManager.gold_block_spawn)) 
+				{
+					EventBlock(event, block, Ores.GOLD_ORE.getDefaultState(), drops, world, pos, state, fortune);
+				}
+				
+				if(block == Block.getBlockFromName(ConfigurationManager.iron_block_spawn)) 
+				{
+					EventBlock(event, block, Ores.IRON_ORE.getDefaultState(), drops, world, pos, state, fortune);
+				}
+				
+				if(block == Block.getBlockFromName(ConfigurationManager.lapis_block_spawn)) 
+				{
+					EventBlock(event, block, Ores.LAPIS_ORE.getDefaultState(), drops, world, pos, state, fortune);
+				}
+				
+				if(block == Block.getBlockFromName(ConfigurationManager.redstone_block_spawn)) 
+				{
+					EventBlock(event, block, Ores.REDSTONE_ORE.getDefaultState(), drops, world, pos, state, fortune);
+				}
 			}
 		}
 	}
@@ -81,6 +82,10 @@ public class OreMineEvent
 		world.setBlockState(pos, spawn);
 		drops.clear();
 		block.getDrops(drops, world, pos, state, fortune);
+		
+		int xp = block.getExpDrop(state, world, pos, fortune);
+		
+		world.spawnEntity(new EntityXPOrb(world, pos.getX(), pos.getY(), pos.getZ(), xp));
 		
 		for(ItemStack stack : drops) 
 		{
