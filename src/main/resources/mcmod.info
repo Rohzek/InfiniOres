@@ -1,0 +1,16 @@
+[
+{
+  "modid": "infiniores",
+  "name": "InfiniOres",
+  "description": "A simple mod make ore nodes that deplete and regenerate.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://discord.gg/JyPwFzu",
+  "updateUrl": "",
+  "authorList": ["Rohzek", "CheshireRose"],
+  "credits": "Commissioned by Sniper_Gecko",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
