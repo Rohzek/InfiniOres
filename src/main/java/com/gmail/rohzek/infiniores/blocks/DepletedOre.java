@@ -8,7 +8,6 @@ import com.gmail.rohzek.infiniores.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -27,8 +26,6 @@ public class DepletedOre extends Block
 		
 		setHardness(3f);
 		setHarvestLevel("pickaxe", level);
-		
-		this.setCreativeTab(CreativeTabs.FOOD);
 		regenerate = block;
 		setNames(name);
 	}
@@ -41,7 +38,7 @@ public class DepletedOre extends Block
 	
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand)
-    {       
+	{       
         if (!world.isRemote)
         {
         	world.setBlockState(pos, regenerate.getDefaultState());
