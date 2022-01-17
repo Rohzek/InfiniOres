@@ -1,24 +1,19 @@
 package com.gmail.rohzek.infiniores;
 
-import java.io.File;
-
-import com.gmail.rohzek.infiniores.blocks.Ores;
 import com.gmail.rohzek.infiniores.lib.Reference;
-import com.gmail.rohzek.infiniores.proxy.CommonProxy;
 import com.gmail.rohzek.infiniores.util.ConfigurationManager;
-import com.gmail.rohzek.infiniores.util.LogHelper;
 
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
+@Mod(Reference.MODID)
 public class InfiniOres 
 {
+	/*
 	@Instance(Reference.MODID)
 	public static InfiniOres INSTANCE;
 	
@@ -40,4 +35,18 @@ public class InfiniOres
 	
 	@EventHandler
 	public static void PostLoad(FMLPostInitializationEvent postEvent) {}
+	*/
+	
+	public InfiniOres() 
+	{
+		// Register the mod
+		FMLJavaModLoadingContext.get().getModEventBus().register(this);
+		
+		// Register configuration file
+		final ModLoadingContext modLoadingContext = ModLoadingContext.get();
+		modLoadingContext.registerConfig(ModConfig.Type.COMMON, ConfigurationManager.spec);
+	}
+	
+	@SubscribeEvent
+	public void setup(FMLCommonSetupEvent event) {}
 }

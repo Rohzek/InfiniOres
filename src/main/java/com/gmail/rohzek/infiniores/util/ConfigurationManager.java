@@ -1,17 +1,94 @@
 package com.gmail.rohzek.infiniores.util;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.gmail.rohzek.infiniores.blocks.DepletedOre;
-import com.gmail.rohzek.infiniores.lib.Reference;
 
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.common.ForgeConfigSpec;
 
 public class ConfigurationManager
 {
+	private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    public static final General GENERAL = new General(BUILDER);
+    public static final ForgeConfigSpec spec = BUILDER.build();
+    
+    public static class General 
+    {
+    	public final ForgeConfigSpec.ConfigValue<Boolean> isDebug;
+    	
+    	// Coal Block
+    	public final ForgeConfigSpec.ConfigValue<String> coal_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<String[]> coal_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> coal_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Long> coal_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> coal_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> coal_block_chance;
+    	
+    	// Diamond Block
+    	public final ForgeConfigSpec.ConfigValue<String> diamond_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<String[]> diamond_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> diamond_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Long> diamond_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> diamond_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> diamond_block_chance;
+    	
+    	// Emerald Block
+    	public final ForgeConfigSpec.ConfigValue<String> emerald_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<String[]> emerald_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> emerald_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Long> emerald_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> emerald_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> emerald_block_chance;
+    	
+    	// Gold Block
+    	public final ForgeConfigSpec.ConfigValue<String> gold_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<String[]> gold_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> gold_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Long> gold_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> gold_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> gold_block_chance;
+    	
+    	// Iron Block
+    	public final ForgeConfigSpec.ConfigValue<String> iron_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<String[]> iron_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> iron_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Long> iron_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> iron_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> iron_block_chance;
+    	
+    	// Lapis Block
+    	public final ForgeConfigSpec.ConfigValue<String> lapis_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<String[]> lapis_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> lapis_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Long> lapis_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> lapis_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> lapis_block_chance;
+    	
+    	// Redstone Block
+    	public final ForgeConfigSpec.ConfigValue<String> redstone_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<String[]> redstone_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> redstone_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Long> redstone_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> redstone_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> redstone_block_chance;
+    	
+    	public static List<DepletedOre> ORES = new ArrayList<DepletedOre>();
+
+        public General(ForgeConfigSpec.Builder builder)
+        {
+            builder.push("General");
+            
+            isDebug = builder
+                    .comment("Enables/Disables debug mode (SPAMS LOGS! Is for detailed bug reports; You probably don't want this for normal play) [false/true|default:false]")
+                    .translation("debugmode.simpledivegear.config")
+                    .define("isDebug", false);
+            
+            builder.pop();
+        }
+    }
+    
+	/*
 	public static File optionsLoc;
 	
 	public static boolean isDebug;
@@ -23,6 +100,7 @@ public class ConfigurationManager
 	public static long coal_block_life_time;
 	public static boolean coal_block_life_time_randomized;
 	public static int coal_block_chance;
+	
 	// diamond ore block
 	public static String diamond_block_spawn;
 	public static String[] diamond_block_replacement;
@@ -30,6 +108,7 @@ public class ConfigurationManager
 	public static long diamond_block_life_time;
 	public static boolean diamond_block_life_time_randomized;
 	public static int diamond_block_chance;
+	
 	// emerald ore block
 	public static String emerald_block_spawn;
 	public static String[] emerald_block_replacement;
@@ -37,6 +116,7 @@ public class ConfigurationManager
 	public static long emerald_block_life_time;
 	public static boolean emerald_block_life_time_randomized;
 	public static int emerald_block_chance;
+	
 	// gold ore block
 	public static String gold_block_spawn;
 	public static String[] gold_block_replacement;
@@ -44,6 +124,7 @@ public class ConfigurationManager
 	public static long gold_block_life_time;
 	public static boolean gold_block_life_time_randomized;
 	public static int gold_block_chance;
+	
 	// iron ore block
 	public static String iron_block_spawn;
 	public static String[] iron_block_replacement;
@@ -51,6 +132,7 @@ public class ConfigurationManager
 	public static long iron_block_life_time;
 	public static boolean iron_block_life_time_randomized;
 	public static int iron_block_chance;
+	
 	// lapis ore block
 	public static String lapis_block_spawn;
 	public static String[] lapis_block_replacement;
@@ -58,6 +140,7 @@ public class ConfigurationManager
 	public static long lapis_block_life_time;
 	public static boolean lapis_block_life_time_randomized;
 	public static int lapis_block_chance;
+	
 	// redstone ore block
 	public static String redstone_block_spawn;
 	public static String[] redstone_block_replacement;
@@ -85,6 +168,7 @@ public class ConfigurationManager
 		Configuration optionsConfig = new Configuration(optionsLoc);
 		Options(optionsConfig);
 	}
+	
 	
 	private static void Options(Configuration config)
 	{
@@ -150,4 +234,5 @@ public class ConfigurationManager
 		
 		config.save();
 	}
+	*/
 }

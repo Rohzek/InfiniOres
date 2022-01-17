@@ -1,6 +1,7 @@
 package com.gmail.rohzek.infiniores.util;
 
 import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
@@ -10,25 +11,26 @@ import org.apache.logging.log4j.Logger;
  */
 public class LogHelper
 {
-	public static Logger logger; // Not used anymore, ignore it
+	private static final Logger LOGGER = LogManager.getLogger();
 	
 	// General logging, allows you to choose log level to control displaying
-    public static void log(Level logLevel, String string)
+	public static void log(Level logLevel, String string)
     {
-        logger.log(logLevel, string);
+    	LOGGER.log(logLevel, string);
     }
- // General logging, will show up in the console regardless
+    
+    // General logging, will show up in the console regardless
     public static void log(String string)
     {
-    	logger.log(Level.INFO, string);
+    	LOGGER.log(Level.INFO, string);
     }
 
     // This is a normal printout but only if my debug config is true.. Allows us to check something, and forget about it for the release
     public static void debug(String string)
     {
-    	if(ConfigurationManager.isDebug)
+    	if(ConfigurationManager.GENERAL.isDebug.get())
     	{
-    		logger.log(Level.DEBUG, string);
+    		LOGGER.log(Level.INFO, string);
     	}
     }
     
@@ -60,7 +62,7 @@ public class LogHelper
 
     public static void trace(String string)
     {
-        if (ConfigurationManager.isDebug)
+    	if (ConfigurationManager.GENERAL.isDebug.get())
         {
             log(Level.TRACE, string);
         }

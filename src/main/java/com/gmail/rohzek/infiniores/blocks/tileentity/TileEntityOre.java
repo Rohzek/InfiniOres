@@ -8,9 +8,9 @@ import com.gmail.rohzek.infiniores.util.ConfigurationManager;
 import com.gmail.rohzek.infiniores.util.LogHelper;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.ITickable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ITickable;
 
 public class TileEntityOre extends TileEntity implements ITickable
 {

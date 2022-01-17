@@ -1,31 +1,42 @@
 package com.gmail.rohzek.infiniores.blocks;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import com.gmail.rohzek.infiniores.blocks.tileentity.TileEntityOre;
 import com.gmail.rohzek.infiniores.lib.Reference;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraft.block.Blocks;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-@ObjectHolder(Reference.MODID)
 public class Ores 
 {
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MODID);
+	
+	public static DepletedOre DEPLETED_ORE_BLOCK = new DepletedOre(Ores.DEPLETED_ORE_BLOCK, 0);
+	public static DepletedOre COAL_ORE_BLOCK = new DepletedOre(Blocks.COAL_ORE, 0);
+	public static DepletedOre DIAMOND_ORE_BLOCK = new DepletedOre(Blocks.DIAMOND_ORE, 2);
+	public static DepletedOre EMERALD_ORE_BLOCK = new DepletedOre(Blocks.EMERALD_ORE,  2);
+	public static DepletedOre IRON_ORE_BLOCK = new DepletedOre(Blocks.IRON_ORE, 1);
+	public static DepletedOre GOLD_ORE_BLOCK = new DepletedOre(Blocks.GOLD_ORE, 2);
+	public static DepletedOre LAPIS_ORE_BLOCK = new DepletedOre(Blocks.LAPIS_ORE, 1);
+	public static DepletedOre REDSTONE_ORE_BLOCK = new DepletedOre(Blocks.REDSTONE_ORE, 2);
+	
+	public static final RegistryObject<Block> DEPLETED_ORE = BLOCKS.register("depleted_ore", () -> DEPLETED_ORE_BLOCK);
+	public static final RegistryObject<Block> COAL_ORE = BLOCKS.register("depleted_ore_coal", () -> COAL_ORE_BLOCK);
+	public static final RegistryObject<Block> DIAMOND_ORE = BLOCKS.register("depleted_ore_diamond", () -> DIAMOND_ORE_BLOCK);
+	public static final RegistryObject<Block> EMERALD_ORE = BLOCKS.register("depleted_ore_emerald", () -> EMERALD_ORE_BLOCK);
+	public static final RegistryObject<Block> IRON_ORE = BLOCKS.register("depleted_ore_iron", () -> IRON_ORE_BLOCK);
+	public static final RegistryObject<Block> GOLD_ORE = BLOCKS.register("depleted_ore_gold", () -> GOLD_ORE_BLOCK);
+	public static final RegistryObject<Block> LAPIS_ORE = BLOCKS.register("depleted_ore_lapis", () -> LAPIS_ORE_BLOCK);
+	public static final RegistryObject<Block> REDSTONE_ORE = BLOCKS.register("depleted_ore_redstone", () -> REDSTONE_ORE_BLOCK);
+
+	public static void register(IEventBus eventBus) 
+	{
+		BLOCKS.register(eventBus);
+	}
+	
+	/*
 	public static DepletedOre DEPLETED_ORE = new DepletedOre(Ores.DEPLETED_ORE, "depleted_ore", 0);
 	public static DepletedOre COAL_ORE = new DepletedOre(Blocks.COAL_ORE, "depleted_ore_coal", 0);
 	public static DepletedOre DIAMOND_ORE = new DepletedOre(Blocks.DIAMOND_ORE, "depleted_ore_diamond", 2);
@@ -75,7 +86,7 @@ public class Ores
 	@Mod.EventBusSubscriber
 	public static class RegistrationHandler 
 	{
-		public static final Set<ItemBlock> ITEM_BLOCKS = new HashSet<ItemBlock>();
+		public static final Set<BlockItem> ITEM_BLOCKS = new HashSet<BlockItem>();
 
 		@SubscribeEvent
 		public static void registerBlocks(RegistryEvent.Register<Block> event) 
@@ -94,20 +105,21 @@ public class Ores
 		@SubscribeEvent
 		public static void registerItemBlocks(RegistryEvent.Register<Item> event) 
 		{	
-			ItemBlock[] items = new ItemBlock[DEPLETED_ORES.size()];
+			BlockItem[] items = new BlockItem[DEPLETED_ORES.size()];
 			
 			for(int i = 0; i < items.length; i++)
 			{
-				items[i] = new ItemBlock(blocks[i]);
+				items[i] = new BlockItem(blocks[i]);
 			}
 
 			final IForgeRegistry<Item> registry = event.getRegistry();
 
-			for (final ItemBlock item : items) 
+			for (final BlockItem item : items) 
 			{
 				registry.register(item.setRegistryName(item.getBlock().getRegistryName()));
 				ITEM_BLOCKS.add(item);
 			}
 		}
 	}
+	*/
 }
