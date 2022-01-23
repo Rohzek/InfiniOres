@@ -9,12 +9,14 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber
 public class OreMineEvent 
@@ -37,37 +39,45 @@ public class OreMineEvent
 				
 				NonNullList<ItemStack> drops = NonNullList.create();
 				
-				if(block == Block.getBlockFromName(ConfigurationManager.coal_block_spawn)) 
+				String[] coal = ConfigurationManager.GENERAL.coal_block_spawn.get().split(":");
+				String[] diamond = ConfigurationManager.GENERAL.diamond_block_spawn.get().split(":");
+				String[] emerald = ConfigurationManager.GENERAL.emerald_block_spawn.get().split(":");
+				String[] gold = ConfigurationManager.GENERAL.gold_block_spawn.get().split(":");
+				String[] iron = ConfigurationManager.GENERAL.iron_block_spawn.get().split(":");
+				String[] lapis = ConfigurationManager.GENERAL.lapis_block_spawn.get().split(":");
+				String[] redstone = ConfigurationManager.GENERAL.redstone_block_spawn.get().split(":");
+				
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(coal[0], coal[1])))
 				{
 					EventBlock(event, block, Ores.COAL_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
-				if(block == Block.getBlockFromName(ConfigurationManager.diamond_block_spawn)) 
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(diamond[0], diamond[1]))) 
 				{
 					EventBlock(event, block, Ores.DIAMOND_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
-				if(block == Block.getBlockFromName(ConfigurationManager.emerald_block_spawn)) 
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(emerald[0], emerald[1]))) 
 				{
 					EventBlock(event, block, Ores.EMERALD_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
-				if(block == Block.getBlockFromName(ConfigurationManager.gold_block_spawn)) 
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(gold[0] ,gold[1]))) 
 				{
 					EventBlock(event, block, Ores.GOLD_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
-				if(block == Block.getBlockFromName(ConfigurationManager.iron_block_spawn)) 
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(iron[0], iron[1]))) 
 				{
 					EventBlock(event, block, Ores.IRON_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
-				if(block == Block.getBlockFromName(ConfigurationManager.lapis_block_spawn)) 
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(lapis[0], lapis[1]))) 
 				{
 					EventBlock(event, block, Ores.LAPIS_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
-				if(block == Block.getBlockFromName(ConfigurationManager.redstone_block_spawn)) 
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(redstone[0], redstone[1]))) 
 				{
 					EventBlock(event, block, Ores.REDSTONE_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
 				}

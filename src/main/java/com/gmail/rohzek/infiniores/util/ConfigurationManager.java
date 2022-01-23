@@ -19,7 +19,7 @@ public class ConfigurationManager
     	
     	// Coal Block
     	public final ForgeConfigSpec.ConfigValue<String> coal_block_spawn;
-    	public final ForgeConfigSpec.ConfigValue<String[]> coal_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> coal_block_replacement;
     	public final ForgeConfigSpec.ConfigValue<Boolean> coal_block_randomized_replacement;
     	public final ForgeConfigSpec.ConfigValue<Long> coal_block_life_time;
     	public final ForgeConfigSpec.ConfigValue<Boolean> coal_block_life_time_randomized;
@@ -27,7 +27,7 @@ public class ConfigurationManager
     	
     	// Diamond Block
     	public final ForgeConfigSpec.ConfigValue<String> diamond_block_spawn;
-    	public final ForgeConfigSpec.ConfigValue<String[]> diamond_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> diamond_block_replacement;
     	public final ForgeConfigSpec.ConfigValue<Boolean> diamond_block_randomized_replacement;
     	public final ForgeConfigSpec.ConfigValue<Long> diamond_block_life_time;
     	public final ForgeConfigSpec.ConfigValue<Boolean> diamond_block_life_time_randomized;
@@ -35,7 +35,7 @@ public class ConfigurationManager
     	
     	// Emerald Block
     	public final ForgeConfigSpec.ConfigValue<String> emerald_block_spawn;
-    	public final ForgeConfigSpec.ConfigValue<String[]> emerald_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> emerald_block_replacement;
     	public final ForgeConfigSpec.ConfigValue<Boolean> emerald_block_randomized_replacement;
     	public final ForgeConfigSpec.ConfigValue<Long> emerald_block_life_time;
     	public final ForgeConfigSpec.ConfigValue<Boolean> emerald_block_life_time_randomized;
@@ -43,7 +43,7 @@ public class ConfigurationManager
     	
     	// Gold Block
     	public final ForgeConfigSpec.ConfigValue<String> gold_block_spawn;
-    	public final ForgeConfigSpec.ConfigValue<String[]> gold_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> gold_block_replacement;
     	public final ForgeConfigSpec.ConfigValue<Boolean> gold_block_randomized_replacement;
     	public final ForgeConfigSpec.ConfigValue<Long> gold_block_life_time;
     	public final ForgeConfigSpec.ConfigValue<Boolean> gold_block_life_time_randomized;
@@ -51,7 +51,7 @@ public class ConfigurationManager
     	
     	// Iron Block
     	public final ForgeConfigSpec.ConfigValue<String> iron_block_spawn;
-    	public final ForgeConfigSpec.ConfigValue<String[]> iron_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> iron_block_replacement;
     	public final ForgeConfigSpec.ConfigValue<Boolean> iron_block_randomized_replacement;
     	public final ForgeConfigSpec.ConfigValue<Long> iron_block_life_time;
     	public final ForgeConfigSpec.ConfigValue<Boolean> iron_block_life_time_randomized;
@@ -59,7 +59,7 @@ public class ConfigurationManager
     	
     	// Lapis Block
     	public final ForgeConfigSpec.ConfigValue<String> lapis_block_spawn;
-    	public final ForgeConfigSpec.ConfigValue<String[]> lapis_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> lapis_block_replacement;
     	public final ForgeConfigSpec.ConfigValue<Boolean> lapis_block_randomized_replacement;
     	public final ForgeConfigSpec.ConfigValue<Long> lapis_block_life_time;
     	public final ForgeConfigSpec.ConfigValue<Boolean> lapis_block_life_time_randomized;
@@ -67,7 +67,7 @@ public class ConfigurationManager
     	
     	// Redstone Block
     	public final ForgeConfigSpec.ConfigValue<String> redstone_block_spawn;
-    	public final ForgeConfigSpec.ConfigValue<String[]> redstone_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> redstone_block_replacement;
     	public final ForgeConfigSpec.ConfigValue<Boolean> redstone_block_randomized_replacement;
     	public final ForgeConfigSpec.ConfigValue<Long> redstone_block_life_time;
     	public final ForgeConfigSpec.ConfigValue<Boolean> redstone_block_life_time_randomized;
@@ -83,6 +83,63 @@ public class ConfigurationManager
                     .comment("Enables/Disables debug mode (SPAMS LOGS! Is for detailed bug reports; You probably don't want this for normal play) [false/true|default:false]")
                     .translation("debugmode.simpledivegear.config")
                     .define("isDebug", false);
+            
+            builder.push("Coal Configurations");
+            
+            coal_block_spawn = builder.comment("").translation("").define("coal_block_spawn", "minecraft:coal_ore");
+            coal_block_replacement = builder.comment("").translation("").define("coal_block_replacement", new ArrayList<String>(List.of("minecraft:coal_ore")));
+            coal_block_randomized_replacement = builder.comment("").translation("").define("coal_block_randomized_replacement", false);
+            coal_block_life_time = builder.comment("").translation("").define("coal_block_life_time", 20L);
+            coal_block_life_time_randomized = builder.comment("").translation("").define("coal_block_life_time_randomized", false);
+            coal_block_chance = builder.comment("").translation("").define("coal_block_chance", 100);
+            
+            builder.push("Diamond Configuration");
+            diamond_block_spawn = builder.comment("").translation("").define("diamond_block_spawn", "minecraft:diamond_ore");
+            diamond_block_replacement = builder.comment("").translation("").define("diamond_block_replacement", new ArrayList<String>(List.of("minecraft:diamond_ore")));
+            diamond_block_randomized_replacement = builder.comment("").translation("diamond_block_randomized_replacement").define("", false);
+            diamond_block_life_time = builder.comment("").translation("").define("diamond_block_life_time", 20L);
+            diamond_block_life_time_randomized = builder.comment("").translation("").define("diamond_block_life_time_randomized", false);
+            diamond_block_chance = builder.comment("").translation("").define("diamond_block_chance", 100);
+            
+            builder.push("Emerald Configuration");
+            emerald_block_spawn = builder.comment("").translation("").define("emerald_block_spawn", "minecraft:emerald_ore");
+            emerald_block_replacement = builder.comment("").translation("").define("emerald_block_replacement", new ArrayList<String>(List.of("minecraft:emerald_ore")));
+            emerald_block_randomized_replacement = builder.comment("").translation("emerald_block_randomized_replacement").define("", false);
+            emerald_block_life_time = builder.comment("").translation("").define("emerald_block_life_time", 20L);
+            emerald_block_life_time_randomized = builder.comment("").translation("").define("emerald_block_life_time_randomized", false);
+            emerald_block_chance = builder.comment("").translation("").define("emerald_block_chance", 100);
+            
+            builder.push("Gold Configuration");
+            gold_block_spawn = builder.comment("").translation("").define("gold_block_spawn", "minecraft:gold_ore");
+            gold_block_replacement = builder.comment("").translation("").define("gold_block_replacement", new ArrayList<String>(List.of("minecraft:gold_ore")));
+            gold_block_randomized_replacement = builder.comment("").translation("").define("gold_block_randomized_replacement", false);
+            gold_block_life_time = builder.comment("").translation("").define("gold_block_life_time", 20L);
+            gold_block_life_time_randomized = builder.comment("").translation("").define("gold_block_life_time_randomized", false);
+            gold_block_chance = builder.comment("").translation("").define("gold_block_chance", 100);
+            
+            builder.push("Iron Configuration");
+            iron_block_spawn = builder.comment("").translation("").define("iron_block_spawn", "minecraft:iron_ore");
+            iron_block_replacement = builder.comment("").translation("").define("iron_block_replacement", new ArrayList<String>(List.of("minecraft:iron_ore")));
+            iron_block_randomized_replacement = builder.comment("").translation("").define("iron_block_randomized_replacement", false);
+            iron_block_life_time = builder.comment("").translation("").define("iron_block_life_time", 20L);
+            iron_block_life_time_randomized = builder.comment("").translation("").define("iron_block_life_time_randomized", false);
+            iron_block_chance = builder.comment("").translation("").define("iron_block_chance", 100);
+            
+            builder.push("Lapis Configuration");
+            lapis_block_spawn = builder.comment("").translation("").define("lapis_block_spawn", "minecraft:lapis_ore");
+            lapis_block_replacement = builder.comment("").translation("").define("lapis_block_replacement", new ArrayList<String>(List.of("minecraft:lapis_ore")));
+            lapis_block_randomized_replacement = builder.comment("").translation("").define("lapis_block_randomized_replacement", false);
+            lapis_block_life_time = builder.comment("").translation("").define("lapis_block_life_time", 20L);
+            lapis_block_life_time_randomized = builder.comment("").translation("").define("lapis_block_life_time_randomized", false);
+            lapis_block_chance = builder.comment("").translation("").define("lapis_block_chance", 100);
+            
+            builder.push("Redstone Configuration");
+            redstone_block_spawn = builder.comment("").translation("").define("", "minecraft:lit_redstone_ore");
+            redstone_block_replacement = builder.comment("").translation("").define("redstone_block_replacement", new ArrayList<String>(List.of("minecraft:redstone_ore")));
+            redstone_block_randomized_replacement = builder.comment("").translation("").define("", false);
+            redstone_block_life_time = builder.comment("").translation("").define("redstone_block_life_time", 20L);
+            redstone_block_life_time_randomized = builder.comment("").translation("").define("", false);
+            redstone_block_chance = builder.comment("").translation("").define("redstone_block_chance", 100);
             
             builder.pop();
         }
