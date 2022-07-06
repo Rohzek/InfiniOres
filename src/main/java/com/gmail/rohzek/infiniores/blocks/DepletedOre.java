@@ -3,6 +3,7 @@ package com.gmail.rohzek.infiniores.blocks;
 import java.util.Random;
 
 import com.gmail.rohzek.infiniores.blocks.tileentity.TileEntityOre;
+import com.sun.jna.platform.win32.Netapi32Util.Group;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -24,7 +25,7 @@ public class DepletedOre extends Block
 	public String name;
 	public int level;
 	
-	public DepletedOre(Block block, /*String name,*/ int level) 
+	public DepletedOre(Block block, int level) 
 	{
 		super(Properties.of(Material.STONE));
 
@@ -33,7 +34,6 @@ public class DepletedOre extends Block
 		//setCreativeTab();
 		
 		regenerate = block;
-		//setNames(name);
 	}
 	
 	@Override
@@ -48,20 +48,12 @@ public class DepletedOre extends Block
 		return this.level;
 	}
 	
-	/*
-	public void setNames(String name) 
-	{
-		setRegistryName(Reference.MODID, name);
-		this.name = name;
-	}
-	*/
-	
 	@Override
 	public void tick(BlockState state, ServerWorld world, BlockPos pos, Random rand) 
 	{
 		if (!world.isClientSide)
         {
-        	if(!(this == Ores.DEPLETED_ORE_BLOCK)) 
+        	if(!(this == Ores.DEPLETED_ORE.get())) 
         	{
         		//world.setBlockState(pos, regenerate.defaultBlockState());
         		world.setBlockAndUpdate(pos, regenerate.defaultBlockState());
@@ -86,7 +78,7 @@ public class DepletedOre extends Block
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) 
 	{
-		return new TileEntityOre(this);
+		return new TileEntityOre(null, this);
 	}
 	
 	@Override

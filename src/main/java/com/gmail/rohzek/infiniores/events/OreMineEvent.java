@@ -49,37 +49,37 @@ public class OreMineEvent
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(coal[0], coal[1])))
 				{
-					EventBlock(event, block, Ores.COAL_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, Ores.COAL_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(diamond[0], diamond[1]))) 
 				{
-					EventBlock(event, block, Ores.DIAMOND_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, Ores.DIAMOND_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(emerald[0], emerald[1]))) 
 				{
-					EventBlock(event, block, Ores.EMERALD_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, Ores.EMERALD_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(gold[0] ,gold[1]))) 
 				{
-					EventBlock(event, block, Ores.GOLD_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, Ores.GOLD_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(iron[0], iron[1]))) 
 				{
-					EventBlock(event, block, Ores.IRON_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, Ores.IRON_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(lapis[0], lapis[1]))) 
 				{
-					EventBlock(event, block, Ores.LAPIS_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, Ores.LAPIS_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(redstone[0], redstone[1]))) 
 				{
-					EventBlock(event, block, Ores.REDSTONE_ORE_BLOCK.defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, Ores.REDSTONE_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 			}
 		}

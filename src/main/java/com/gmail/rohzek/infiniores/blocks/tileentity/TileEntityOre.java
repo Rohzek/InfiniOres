@@ -4,213 +4,222 @@ import java.util.Random;
 
 import com.gmail.rohzek.infiniores.blocks.DepletedOre;
 import com.gmail.rohzek.infiniores.blocks.Ores;
+import com.gmail.rohzek.infiniores.lib.DeferredRegistration;
 import com.gmail.rohzek.infiniores.util.ConfigurationManager;
 import com.gmail.rohzek.infiniores.util.LogHelper;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.texture.ITickable;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class TileEntityOre extends TileEntity implements ITickable
 {
 	private static Random random = new Random();
 	
-	private long timer = 30;
+	private int timer = 30;
 	private int chance = 100;
 	
-	public TileEntityOre(DepletedOre ore) 
+	public TileEntityOre(TileEntityType<?> tileEntity, DepletedOre ore) 
 	{
-		if(ore == Ores.COAL_ORE) 
+		super(tileEntity);
+		
+		if(ore == Ores.COAL_ORE.get())
 		{
-			if(ConfigurationManager.coal_block_life_time_randomized) 
+			if(ConfigurationManager.GENERAL.coal_block_life_time_randomized.get()) 
 			{
-				timer = random.nextInt((int) ConfigurationManager.coal_block_life_time);
+				timer = random.nextInt((int) ConfigurationManager.GENERAL.coal_block_life_time.get());
 			}
 			
 			else 
 			{
-				timer = ConfigurationManager.coal_block_life_time;
+				timer = ConfigurationManager.GENERAL.coal_block_life_time.get();
 			}
 			
 			
-			if(ConfigurationManager.coal_block_randomized_replacement) 
+			if(ConfigurationManager.GENERAL.coal_block_randomized_replacement.get()) 
 			{
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.coal_block_replacement[random.nextInt(ConfigurationManager.coal_block_replacement.length)]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.coal_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.coal_block_replacement.get().size()))));
 			}
 			
 			else 
 			{
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.coal_block_replacement[0]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.coal_block_replacement.get().get(0)));
 			}
 		}
 		
-		if(ore == Ores.DIAMOND_ORE) 
+		if(ore == Ores.DIAMOND_ORE.get()) 
 		{
 			
-			if(ConfigurationManager.diamond_block_life_time_randomized) 
+			if(ConfigurationManager.GENERAL.diamond_block_life_time_randomized.get()) 
 			{
-				timer = random.nextInt((int) ConfigurationManager.diamond_block_life_time);
+				timer = random.nextInt((int) ConfigurationManager.GENERAL.diamond_block_life_time.get());
 			}
 			
 			else 
 			{
-				timer = ConfigurationManager.diamond_block_life_time;
+				timer = ConfigurationManager.GENERAL.diamond_block_life_time.get();
 			}
 			
 			
-			if(ConfigurationManager.diamond_block_randomized_replacement) 
+			if(ConfigurationManager.GENERAL.diamond_block_randomized_replacement.get()) 
 			{
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.diamond_block_replacement[random.nextInt(ConfigurationManager.diamond_block_replacement.length)]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.diamond_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.diamond_block_replacement.get().size()))));
 			}
 			
 			else 
 			{
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.diamond_block_replacement[0]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.diamond_block_replacement.get().get(0)));
 			}
 		}
 		
-		if(ore == Ores.EMERALD_ORE) 
+		if(ore == Ores.EMERALD_ORE.get()) 
 		{
-			if(ConfigurationManager.emerald_block_life_time_randomized) 
+			if(ConfigurationManager.GENERAL.emerald_block_life_time_randomized.get()) 
 			{
-				timer = random.nextInt((int) ConfigurationManager.emerald_block_life_time);
+				timer = random.nextInt((int) ConfigurationManager.GENERAL.emerald_block_life_time.get());
 			}
 			
 			else 
 			{
-				timer = ConfigurationManager.emerald_block_life_time;
+				timer = ConfigurationManager.GENERAL.emerald_block_life_time.get();
 			}
 			
 			
-			if(ConfigurationManager.emerald_block_randomized_replacement) 
+			if(ConfigurationManager.GENERAL.emerald_block_randomized_replacement.get()) 
 			{
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.emerald_block_replacement[random.nextInt(ConfigurationManager.emerald_block_replacement.length)]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.emerald_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.emerald_block_replacement.get().size()))));
 			}
 			
 			else 
 			{
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.emerald_block_replacement[0]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.emerald_block_replacement.get().get(0)));
 			}
 		}
 		
-		if(ore == Ores.GOLD_ORE) 
+		if(ore == Ores.GOLD_ORE.get()) 
 		{
-			if(ConfigurationManager.gold_block_life_time_randomized) 
+			if(ConfigurationManager.GENERAL.gold_block_life_time_randomized.get()) 
 			{
-				timer = random.nextInt((int) ConfigurationManager.gold_block_life_time);
+				timer = random.nextInt((int) ConfigurationManager.GENERAL.gold_block_life_time.get());
 			}
 			
 			else 
 			{
-				timer = ConfigurationManager.gold_block_life_time;
+				timer = ConfigurationManager.GENERAL.gold_block_life_time.get();
 			}
 			
-			if(ConfigurationManager.gold_block_randomized_replacement) 
+			if(ConfigurationManager.GENERAL.gold_block_randomized_replacement.get()) 
 			{
 				
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.gold_block_replacement[random.nextInt(ConfigurationManager.gold_block_replacement.length)]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.gold_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.gold_block_replacement.get().size()))));
 			}
 			
 			else 
 			{
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.gold_block_replacement[0]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.gold_block_replacement.get().get(0)));
 			}	
 		}
 		
-		if(ore == Ores.IRON_ORE) 
+		if(ore == Ores.IRON_ORE.get()) 
 		{
-			if(ConfigurationManager.iron_block_life_time_randomized) 
+			if(ConfigurationManager.GENERAL.iron_block_life_time_randomized.get()) 
 			{
-				timer = random.nextInt((int) ConfigurationManager.iron_block_life_time);
+				timer = random.nextInt((int) ConfigurationManager.GENERAL.iron_block_life_time.get());
 			}
 			
 			else 
 			{
-				timer = ConfigurationManager.iron_block_life_time;
+				timer = ConfigurationManager.GENERAL.iron_block_life_time.get();
 			}
 			
-			if(ConfigurationManager.iron_block_randomized_replacement) 
+			if(ConfigurationManager.GENERAL.iron_block_randomized_replacement.get()) 
 			{
 				
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.iron_block_replacement[random.nextInt(ConfigurationManager.iron_block_replacement.length)]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.iron_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.iron_block_replacement.get().size()))));
 			}
 			
 			else 
 			{
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.iron_block_replacement[0]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.iron_block_replacement.get().get(0)));
 			}
 		}
 		
-		if(ore == Ores.LAPIS_ORE) 
+		if(ore == Ores.LAPIS_ORE.get()) 
 		{
-			if(ConfigurationManager.lapis_block_life_time_randomized) 
+			if(ConfigurationManager.GENERAL.lapis_block_life_time_randomized.get()) 
 			{
-				timer = random.nextInt((int) ConfigurationManager.lapis_block_life_time);
+				timer = random.nextInt((int) ConfigurationManager.GENERAL.lapis_block_life_time.get());
 			}
 			
 			else 
 			{
-				timer = ConfigurationManager.lapis_block_life_time;
+				timer = ConfigurationManager.GENERAL.lapis_block_life_time.get();
 			}
 			
-			if(ConfigurationManager.lapis_block_randomized_replacement) 
+			if(ConfigurationManager.GENERAL.lapis_block_randomized_replacement.get()) 
 			{
 				
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.lapis_block_replacement[random.nextInt(ConfigurationManager.lapis_block_replacement.length)]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.lapis_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.lapis_block_replacement.get().size()))));
 			}
 			
 			else 
 			{
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.lapis_block_replacement[0]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.lapis_block_replacement.get().get(0)));
 			}
 		}
 		
-		if(ore == Ores.REDSTONE_ORE) 
+		if(ore == Ores.REDSTONE_ORE.get()) 
 		{
-			if(ConfigurationManager.redstone_block_life_time_randomized) 
+			if(ConfigurationManager.GENERAL.redstone_block_life_time_randomized.get()) 
 			{
-				timer = random.nextInt((int) ConfigurationManager.redstone_block_life_time);
+				timer = random.nextInt((int) ConfigurationManager.GENERAL.redstone_block_life_time.get());
 			}
 			
 			else 
 			{
-				timer = ConfigurationManager.redstone_block_life_time;
+				timer = ConfigurationManager.GENERAL.redstone_block_life_time.get();
 			}
 			
-			if(ConfigurationManager.redstone_block_randomized_replacement) 
+			if(ConfigurationManager.GENERAL.redstone_block_randomized_replacement.get()) 
 			{
 				
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.redstone_block_replacement[random.nextInt(ConfigurationManager.redstone_block_replacement.length)]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.redstone_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.redstone_block_replacement.get().size()))));
 			}
 			
 			else 
 			{
-				ore.regenerate = Block.getBlockFromName(ConfigurationManager.redstone_block_replacement[0]);
+				ore.regenerate = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.redstone_block_replacement.get().get(0)));
 			}
 		}
 	}
 	
+	// Was previously known as readFromNBT?
 	@Override
-	public void readFromNBT(NBTTagCompound compound) 
+	public void load(BlockState state, CompoundNBT compound) 
 	{
-		super.readFromNBT(compound);
-		this.timer = compound.getLong("timer");
-		this.chance = compound.getInteger("chance");
+		super.load(state, compound);
+		this.timer = compound.getInt("timer");
+		this.chance = compound.getInt("chance");
+	}
+	
+	// Was previously known as writeToNBT?
+	@Override
+	public CompoundNBT save(CompoundNBT compound) 
+	{
+		compound.putInt("timer", timer);
+		compound.putInt("chance", chance);
+		return super.save(compound);
 	}
 	
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) 
+	public void tick() 
 	{
-		compound.setLong("timer", timer);
-		compound.setInteger("chance", chance);
-		return super.writeToNBT(compound);
-	}
-
-	@Override
-	public void update() 
-	{
-		if (!world.isRemote)
+		if (!level.isClientSide)
         {
 			if(this.timer > 0) 
 			{
@@ -219,14 +228,15 @@ public class TileEntityOre extends TileEntity implements ITickable
 			}
 			else 
 			{
-				Block block = world.getBlockState(this.getPos()).getBlock();
+				Block block = level.getBlockState(this.getBlockPos()).getBlock();
 				
 				if(random.nextInt(100) < chance)
 				{
 					LogHelper.log("I should be changing");
-					block.updateTick(world, pos, world.getBlockState(pos), new Random());
+					//block.updateTick(level, worldPosition, level.getBlockState(worldPosition), new Random());
 				}
 			}
         }
+		
 	}
 }
