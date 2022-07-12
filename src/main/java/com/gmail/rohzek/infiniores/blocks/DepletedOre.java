@@ -72,7 +72,7 @@ public class DepletedOre extends Block
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) 
 	{
-		return new TileEntityOre(null, this);
+		return new TileEntityOre();
 	}
 	
 	@Override

@@ -1,7 +1,8 @@
 package com.gmail.rohzek.infiniores;
 
 import com.gmail.rohzek.infiniores.blocks.InfiniOresBlocks;
-import com.gmail.rohzek.infiniores.items.InfiniOreItems;
+import com.gmail.rohzek.infiniores.blocks.tileentity.InfiniOresTileEntities;
+import com.gmail.rohzek.infiniores.items.InfiniOresItems;
 import com.gmail.rohzek.infiniores.lib.Reference;
 import com.gmail.rohzek.infiniores.tabs.InfiniOresTab;
 import com.gmail.rohzek.infiniores.util.ConfigurationManager;
@@ -27,7 +28,8 @@ public class InfiniOres
 		
 		// Set deferred registration
 		InfiniOresBlocks.register(bus);
-		InfiniOreItems.register(bus);
+		InfiniOresItems.register(bus);
+		InfiniOresTileEntities.register(bus);
 		
 		
 		// Register configuration file

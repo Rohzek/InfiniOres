@@ -3,14 +3,13 @@ package com.gmail.rohzek.infiniores.blocks;
 import java.util.function.Supplier;
 
 import com.gmail.rohzek.infiniores.InfiniOres;
-import com.gmail.rohzek.infiniores.items.InfiniOreItems;
+import com.gmail.rohzek.infiniores.items.InfiniOresItems;
 import com.gmail.rohzek.infiniores.lib.Reference;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,7 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class InfiniOresBlocks 
 {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MODID);
-	public static final DeferredRegister<TileEntityType<?>> TILE_ENTITIES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, Reference.MODID);
+	
 	
 	public static final RegistryObject<DepletedOre> DEPLETED_ORE = registerBlock("depleted_ore", () -> new DepletedOre(Blocks.COBBLESTONE, 0));
 	public static final RegistryObject<DepletedOre> COAL_ORE = registerBlock("depleted_ore_coal", () -> new DepletedOre(Blocks.COAL_ORE, 0));
@@ -33,7 +32,6 @@ public class InfiniOresBlocks
 	public static void register(IEventBus bus) 
 	{
 		BLOCKS.register(bus);
-		TILE_ENTITIES.register(bus);
 	}
 	
 	private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block) 
@@ -45,6 +43,6 @@ public class InfiniOresBlocks
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) 
     {
-        InfiniOreItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(InfiniOres.INFINI_ORES_TAB)));
+        InfiniOresItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(InfiniOres.INFINI_ORES_TAB)));
     }
 }

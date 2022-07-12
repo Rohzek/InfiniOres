@@ -24,6 +24,11 @@ public class TileEntityOre extends TileEntity implements ITickable
 	private int timer = 30;
 	private int chance = 100;
 	
+	public TileEntityOre() 
+	{
+		super(InfiniOresTileEntities.ORE_TILE_ENTITY.get());
+	}
+	
 	public TileEntityOre(TileEntityType<?> tileEntity, DepletedOre ore) 
 	{
 		super(tileEntity);
