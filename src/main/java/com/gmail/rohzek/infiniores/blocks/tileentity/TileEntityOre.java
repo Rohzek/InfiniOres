@@ -3,8 +3,7 @@ package com.gmail.rohzek.infiniores.blocks.tileentity;
 import java.util.Random;
 
 import com.gmail.rohzek.infiniores.blocks.DepletedOre;
-import com.gmail.rohzek.infiniores.blocks.Ores;
-import com.gmail.rohzek.infiniores.lib.DeferredRegistration;
+import com.gmail.rohzek.infiniores.blocks.InfiniOresBlocks;
 import com.gmail.rohzek.infiniores.util.ConfigurationManager;
 import com.gmail.rohzek.infiniores.util.LogHelper;
 
@@ -15,6 +14,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class TileEntityOre extends TileEntity implements ITickable
@@ -28,7 +28,7 @@ public class TileEntityOre extends TileEntity implements ITickable
 	{
 		super(tileEntity);
 		
-		if(ore == Ores.COAL_ORE.get())
+		if(ore == InfiniOresBlocks.COAL_ORE.get())
 		{
 			if(ConfigurationManager.GENERAL.coal_block_life_time_randomized.get()) 
 			{
@@ -52,7 +52,7 @@ public class TileEntityOre extends TileEntity implements ITickable
 			}
 		}
 		
-		if(ore == Ores.DIAMOND_ORE.get()) 
+		if(ore == InfiniOresBlocks.DIAMOND_ORE.get()) 
 		{
 			
 			if(ConfigurationManager.GENERAL.diamond_block_life_time_randomized.get()) 
@@ -77,7 +77,7 @@ public class TileEntityOre extends TileEntity implements ITickable
 			}
 		}
 		
-		if(ore == Ores.EMERALD_ORE.get()) 
+		if(ore == InfiniOresBlocks.EMERALD_ORE.get()) 
 		{
 			if(ConfigurationManager.GENERAL.emerald_block_life_time_randomized.get()) 
 			{
@@ -101,7 +101,7 @@ public class TileEntityOre extends TileEntity implements ITickable
 			}
 		}
 		
-		if(ore == Ores.GOLD_ORE.get()) 
+		if(ore == InfiniOresBlocks.GOLD_ORE.get()) 
 		{
 			if(ConfigurationManager.GENERAL.gold_block_life_time_randomized.get()) 
 			{
@@ -125,7 +125,7 @@ public class TileEntityOre extends TileEntity implements ITickable
 			}	
 		}
 		
-		if(ore == Ores.IRON_ORE.get()) 
+		if(ore == InfiniOresBlocks.IRON_ORE.get()) 
 		{
 			if(ConfigurationManager.GENERAL.iron_block_life_time_randomized.get()) 
 			{
@@ -149,7 +149,7 @@ public class TileEntityOre extends TileEntity implements ITickable
 			}
 		}
 		
-		if(ore == Ores.LAPIS_ORE.get()) 
+		if(ore == InfiniOresBlocks.LAPIS_ORE.get()) 
 		{
 			if(ConfigurationManager.GENERAL.lapis_block_life_time_randomized.get()) 
 			{
@@ -173,7 +173,7 @@ public class TileEntityOre extends TileEntity implements ITickable
 			}
 		}
 		
-		if(ore == Ores.REDSTONE_ORE.get()) 
+		if(ore == InfiniOresBlocks.REDSTONE_ORE.get()) 
 		{
 			if(ConfigurationManager.GENERAL.redstone_block_life_time_randomized.get()) 
 			{
@@ -216,6 +216,7 @@ public class TileEntityOre extends TileEntity implements ITickable
 		return super.save(compound);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void tick() 
 	{
@@ -234,6 +235,7 @@ public class TileEntityOre extends TileEntity implements ITickable
 				{
 					LogHelper.log("I should be changing");
 					//block.updateTick(level, worldPosition, level.getBlockState(worldPosition), new Random());
+					block.tick(level.getBlockState(worldPosition), (ServerWorld) level, worldPosition, new Random());
 				}
 			}
         }

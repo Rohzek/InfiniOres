@@ -1,0 +1,11 @@
+{
+	"block.infiniores.depleted_ore": "Depleted Ore",
+	"block.infiniores.depleted_ore_coal": "Depleted Ore",
+	"block.infiniores.depleted_ore_diamond": "Depleted Ore",
+	"block.infiniores.depleted_ore_emerald": "Depleted Ore",
+	"block.infiniores.depleted_ore_gold": "Depleted Ore",
+	"block.infiniores.depleted_ore_iron": "Depleted Ore",
+	"block.infiniores.depleted_ore_lapis": "Depleted Ore",
+	"block.infiniores.depleted_ore_redstone": "Depleted Ore",
+	"itemGroup.infiniores": "InfiniOres"
+}

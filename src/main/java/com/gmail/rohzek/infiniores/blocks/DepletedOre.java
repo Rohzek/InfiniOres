@@ -3,14 +3,11 @@ package com.gmail.rohzek.infiniores.blocks;
 import java.util.Random;
 
 import com.gmail.rohzek.infiniores.blocks.tileentity.TileEntityOre;
-import com.sun.jna.platform.win32.Netapi32Util.Group;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -30,9 +27,6 @@ public class DepletedOre extends Block
 		super(Properties.of(Material.STONE));
 
 		this.level = level;
-		
-		//setCreativeTab();
-		
 		regenerate = block;
 	}
 	
@@ -53,21 +47,21 @@ public class DepletedOre extends Block
 	{
 		if (!world.isClientSide)
         {
-        	if(!(this == Ores.DEPLETED_ORE.get())) 
+        	if(!(this == InfiniOresBlocks.DEPLETED_ORE.get())) 
         	{
-        		//world.setBlockState(pos, regenerate.defaultBlockState());
         		world.setBlockAndUpdate(pos, regenerate.defaultBlockState());
         	}
         	
         }
 	}
 	
+	/*
 	@Override
 	public Item asItem() 
 	{
-		//return Item.getItemFromBlock(Blocks.COBBLESTONE);
 		return Blocks.COBBLESTONE.asItem();
 	}
+	*/
 	
 	@Override
 	public void setPlacedBy(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack)

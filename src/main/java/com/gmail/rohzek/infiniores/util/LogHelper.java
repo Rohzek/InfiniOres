@@ -4,6 +4,8 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.gmail.rohzek.infiniores.lib.Reference;
+
 /**
  * Allows easy logging to console by calling "LogHelper.log("string"); or LogHelper.debug("string"); anywhere
  * @author Rohzek
@@ -11,7 +13,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class LogHelper
 {
-	private static final Logger LOGGER = LogManager.getLogger();
+	private static final Logger LOGGER = LogManager.getLogger(Reference.MODID);
 	
 	// General logging, allows you to choose log level to control displaying
 	public static void log(Level logLevel, String string)

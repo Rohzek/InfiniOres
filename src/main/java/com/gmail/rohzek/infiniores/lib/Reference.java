@@ -21,9 +21,4 @@ public class Reference
 	
 	// We only have to change it here... MCMOD.info is gone and the ModData is hardcoded to check here
 	public static final String VERSION = "0.0.1";
-	
-	private static final String address = "com.gmail.rohzek.infiniores.proxy";
-	
-	public static final String CLIENTSIDEPROXY = address + ".ClientProxy";
-	public static final String SERVERSIDEPROXY = address + ".CommonProxy";
 }

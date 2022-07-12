@@ -1,13 +1,11 @@
 package com.gmail.rohzek.infiniores;
 
-import com.gmail.rohzek.infiniores.blocks.Ores;
-import com.gmail.rohzek.infiniores.lib.DeferredRegistration;
+import com.gmail.rohzek.infiniores.blocks.InfiniOresBlocks;
+import com.gmail.rohzek.infiniores.items.InfiniOreItems;
 import com.gmail.rohzek.infiniores.lib.Reference;
+import com.gmail.rohzek.infiniores.tabs.InfiniOresTab;
 import com.gmail.rohzek.infiniores.util.ConfigurationManager;
 
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -19,44 +17,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod(Reference.MODID)
 public class InfiniOres 
 {
-	/*
-	@Instance(Reference.MODID)
-	public static InfiniOres INSTANCE;
-	
-	@SidedProxy(clientSide = Reference.CLIENTSIDEPROXY, serverSide = Reference.SERVERSIDEPROXY)
-	public static CommonProxy proxy;
-	
-	@EventHandler
-	public static void PreLoad(FMLPreInitializationEvent preEvent) 
-	{
-		LogHelper.logger = preEvent.getModLog();
-		Reference.LOCATION = new File(preEvent.getModConfigurationDirectory().getAbsolutePath() + "/" + Reference.MODID);
-		ConfigurationManager.Load(preEvent);
-		
-		Ores.registerTileEntities();
-	}
-	
-	@EventHandler
-	public static void load(FMLInitializationEvent event) {}
-	
-	@EventHandler
-	public static void PostLoad(FMLPostInitializationEvent postEvent) {}
-	*/
-	public static final ItemGroup INFINI_ORES_TAB = new ItemGroup(Reference.MODID) 
-	{
-
-		@Override
-		public ItemStack makeIcon() 
-		{
-			return ItemStack.EMPTY;
-		}
-		
-		@Override
-		public void fillItemList(NonNullList<ItemStack> itemStacks) 
-		{
-			itemStacks.add(new ItemStack(Ores.DEPLETED_ORE.get()));
-		};
-	};
+	public static final InfiniOresTab INFINI_ORES_TAB = new InfiniOresTab(Reference.MODID);
 	
 	public InfiniOres() 
 	{
@@ -65,10 +26,9 @@ public class InfiniOres
 		bus.register(this);
 		
 		// Set deferred registration
-		DeferredRegistration.register(bus);
-		Ores.register();
+		InfiniOresBlocks.register(bus);
+		InfiniOreItems.register(bus);
 		
-		INFINI_ORES_TAB.getBackgroundImage();
 		
 		// Register configuration file
 		final ModLoadingContext modLoadingContext = ModLoadingContext.get();

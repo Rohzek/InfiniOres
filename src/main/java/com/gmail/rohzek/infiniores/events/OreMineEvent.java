@@ -1,12 +1,13 @@
 package com.gmail.rohzek.infiniores.events;
 
-import com.gmail.rohzek.infiniores.blocks.Ores;
+import com.gmail.rohzek.infiniores.blocks.InfiniOresBlocks;
 import com.gmail.rohzek.infiniores.util.ConfigurationManager;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
@@ -49,37 +50,37 @@ public class OreMineEvent
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(coal[0], coal[1])))
 				{
-					EventBlock(event, block, Ores.COAL_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, InfiniOresBlocks.COAL_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(diamond[0], diamond[1]))) 
 				{
-					EventBlock(event, block, Ores.DIAMOND_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, InfiniOresBlocks.DIAMOND_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(emerald[0], emerald[1]))) 
 				{
-					EventBlock(event, block, Ores.EMERALD_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, InfiniOresBlocks.EMERALD_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(gold[0] ,gold[1]))) 
 				{
-					EventBlock(event, block, Ores.GOLD_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, InfiniOresBlocks.GOLD_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(iron[0], iron[1]))) 
 				{
-					EventBlock(event, block, Ores.IRON_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, InfiniOresBlocks.IRON_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(lapis[0], lapis[1]))) 
 				{
-					EventBlock(event, block, Ores.LAPIS_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, InfiniOresBlocks.LAPIS_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(redstone[0], redstone[1]))) 
 				{
-					EventBlock(event, block, Ores.REDSTONE_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
+					EventBlock(event, block, InfiniOresBlocks.REDSTONE_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 			}
 		}
@@ -88,20 +89,17 @@ public class OreMineEvent
 	@SuppressWarnings("static-access")
 	private static void EventBlock(BreakEvent event, Block block, BlockState spawn, NonNullList<ItemStack> drops, ServerWorld world, BlockPos pos, BlockState state, int fortune) 
 	{
-		//world.setBlockState(pos, spawn);
 		world.setBlockAndUpdate(pos, spawn);
 		drops.clear();
-		//block.getDrops(drops, world, pos, state, fortune);
 		block.getDrops(state, world, pos, null);
 		
 		int xp = block.getExpDrop(state, world, pos, fortune, 0);
 		
-		//world.spawnEntity(new XPOrbEntity(world, pos.getX(), pos.getY(), pos.getZ(), xp));
 		event.getPlayer().giveExperienceLevels(xp);
 		
 		for(ItemStack stack : drops) 
 		{
-			//world.spawnEntity(new ItemEntity(world, pos.getX(), pos.getY() + 1, pos.getZ(), stack));
+			world.addFreshEntity(new ItemEntity(world, pos.getX(), pos.getY() + 1, pos.getZ(), stack));
 		}
 		
 		event.setCanceled(true);

@@ -1,5 +1,5 @@
 {
     "variants": {
-	"normal": { "model": "infiniores:depleted_ore" }
+		"": { "model": "infiniores:block/depleted_ore" }
     }
 }
