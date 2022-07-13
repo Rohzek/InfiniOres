@@ -204,42 +204,134 @@ public class ConfigurationManager
 	            builder.pop();
 	            
 	            builder.push("Gold Configuration");
-	            gold_block_spawn = builder.comment("").translation("").define("gold_block_spawn", "minecraft:gold_ore");
-	            gold_block_replacement = builder.comment("").translation("").define("gold_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:gold_ore")));
-	            gold_block_randomized_replacement = builder.comment("").translation("gold_block_randomized_replacement").define("gold_block_randomized_replacement", false);
-	            gold_block_life_time = builder.comment("").translation("").define("gold_block_life_time", 20);
-	            gold_block_life_time_randomized = builder.comment("").translation("").define("gold_block_life_time_randomized", false);
-	            gold_block_chance = builder.comment("").translation("").define("gold_block_chance", 100);
+	            gold_block_spawn = builder
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("gold_block_spawn.infiniores.config")
+	            		.define("gold_block_spawn", "minecraft:gold_ore");
+	            
+	            gold_block_replacement = builder
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("gold_block_replacement.infiniores.config")
+	            		.define("gold_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:gold_ore")));
+	            
+	            gold_block_randomized_replacement = builder
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("gold_block_randomized_replacement.infiniores.config")
+	            		.define("gold_block_randomized_replacement", false);
+	            
+	            gold_block_life_time = builder
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("gold_block_life_time.infiniores.config")
+	            		.define("gold_block_life_time", 20);
+	            
+	            gold_block_life_time_randomized = builder
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("gold_block_life_time_randomized.infiniores.config")
+	            		.define("gold_block_life_time_randomized", false);
+	            
+	            gold_block_chance = builder
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("gold_block_chance.infiniores.config")
+	            		.define("gold_block_chance", 100);
 	            
 	            builder.pop();
 	            
 	            builder.push("Iron Configuration");
-	            iron_block_spawn = builder.comment("").translation("").define("iron_block_spawn", "minecraft:iron_ore");
-	            iron_block_replacement = builder.comment("").translation("").define("iron_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:iron_ore")));
-	            iron_block_randomized_replacement = builder.comment("").translation("iron_block_randomized_replacement").define("iron_block_randomized_replacement", false);
-	            iron_block_life_time = builder.comment("").translation("").define("iron_block_life_time", 20);
-	            iron_block_life_time_randomized = builder.comment("").translation("").define("iron_block_life_time_randomized", false);
-	            iron_block_chance = builder.comment("").translation("").define("iron_block_chance", 100);
+	            iron_block_spawn = builder
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("iron_block_spawn.infiniores.config")
+	            		.define("iron_block_spawn", "minecraft:iron_ore");
+	            
+	            iron_block_replacement = builder
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("iron_block_replacement.infiniores.config")
+	            		.define("iron_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:iron_ore")));
+	            
+	            iron_block_randomized_replacement = builder
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("iron_block_randomized_replacement.infiniores.config")
+	            		.define("iron_block_randomized_replacement", false);
+	            
+	            iron_block_life_time = builder
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("iron_block_life_time.infiniores.config")
+	            		.define("iron_block_life_time", 20);
+	            
+	            iron_block_life_time_randomized = builder
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("iron_block_life_time_randomized.infiniores.config")
+	            		.define("iron_block_life_time_randomized", false);
+	            
+	            iron_block_chance = builder
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("iron_block_chance.infiniores.config")
+	            		.define("iron_block_chance", 100);
 	            
 	            builder.pop();
 	            
 	            builder.push("Lapis Configuration");
-	            lapis_block_spawn = builder.comment("").translation("").define("lapis_block_spawn", "minecraft:lapis_ore");
-	            lapis_block_replacement = builder.comment("").translation("").define("lapis_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:lapis_ore")));
-	            lapis_block_randomized_replacement = builder.comment("").translation("lapis_block_randomized_replacement").define("lapis_block_randomized_replacement", false);
-	            lapis_block_life_time = builder.comment("").translation("").define("lapis_block_life_time", 20);
-	            lapis_block_life_time_randomized = builder.comment("").translation("").define("lapis_block_life_time_randomized", false);
-	            lapis_block_chance = builder.comment("").translation("").define("lapis_block_chance", 100);
+	            lapis_block_spawn = builder
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("lapis_block_spawn.infiniores.config")
+	            		.define("lapis_block_spawn", "minecraft:lapis_ore");
+	            
+	            lapis_block_replacement = builder
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("lapis_block_replacement.infiniores.config")
+	            		.define("lapis_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:lapis_ore")));
+	            
+	            lapis_block_randomized_replacement = builder
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("lapis_block_randomized_replacement.infiniores.config")
+	            		.define("lapis_block_randomized_replacement", false);
+	            
+	            lapis_block_life_time = builder
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("lapis_block_life_time.infiniores.config")
+	            		.define("lapis_block_life_time", 20);
+	            
+	            lapis_block_life_time_randomized = builder
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("lapis_block_life_time_randomized.infiniores.config")
+	            		.define("lapis_block_life_time_randomized", false);
+	            
+	            lapis_block_chance = builder
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("lapis_block_chance.infiniores.config")
+	            		.define("lapis_block_chance", 100);
 	            
 	            builder.pop();
 	            
 	            builder.push("Redstone Configuration");
-	            redstone_block_spawn = builder.comment("").translation("").define("redstone_block_spawn", "minecraft:redstone_ore");
-	            redstone_block_replacement = builder.comment("").translation("").define("redstone_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:redstone_ore")));
-	            redstone_block_randomized_replacement = builder.comment("").translation("redstone_block_randomized_replacement").define("redstone_block_randomized_replacement", false);
-	            redstone_block_life_time = builder.comment("").translation("").define("redstone_block_life_time", 20);
-	            redstone_block_life_time_randomized = builder.comment("").translation("").define("redstone_block_life_time_randomized", false);
-	            redstone_block_chance = builder.comment("").translation("").define("redstone_block_chance", 100);
+	            redstone_block_spawn = builder
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("redstone_block_spawn.infiniores.config")
+	            		.define("redstone_block_spawn", "minecraft:redstone_ore");
+	            
+	            redstone_block_replacement = builder
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("redstone_block_replacement.infiniores.config")
+	            		.define("redstone_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:redstone_ore")));
+	            
+	            redstone_block_randomized_replacement = builder
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("redstone_block_randomized_replacement.infiniores.config")
+	            		.define("redstone_block_randomized_replacement", false);
+	            
+	            redstone_block_life_time = builder
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("redstone_block_life_time.infiniores.config")
+	            		.define("redstone_block_life_time", 20);
+	            
+	            redstone_block_life_time_randomized = builder
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("redstone_block_life_time_randomized.infiniores.config")
+	            		.define("redstone_block_life_time_randomized", false);
+	            
+	            redstone_block_chance = builder
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("redstone_block_chance.infiniores.config")
+	            		.define("redstone_block_chance", 100);
 	            
 	            builder.pop();
 	        builder.pop();
