@@ -1,5 +1,5 @@
 {
     "variants": {
-		"": { "model": "infiniores:block/depleted_ore" }
+		"": { "model": "infiniores:block/depleted_ore_coal" }
     }
 }

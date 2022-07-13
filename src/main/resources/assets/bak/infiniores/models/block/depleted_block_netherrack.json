@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "infiniores:blocks/depleted_block_netherrack"
+    }
+}

@@ -16,10 +16,10 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class OreMineEvent 
 {
 	@SubscribeEvent
@@ -40,6 +40,9 @@ public class OreMineEvent
 				
 				NonNullList<ItemStack> drops = NonNullList.create();
 				
+				// Blocks
+				String[] stone = ConfigurationManager.GENERAL.stone_block_spawn.get().split(":");
+				// Ores
 				String[] coal = ConfigurationManager.GENERAL.coal_block_spawn.get().split(":");
 				String[] diamond = ConfigurationManager.GENERAL.diamond_block_spawn.get().split(":");
 				String[] emerald = ConfigurationManager.GENERAL.emerald_block_spawn.get().split(":");
@@ -48,6 +51,13 @@ public class OreMineEvent
 				String[] lapis = ConfigurationManager.GENERAL.lapis_block_spawn.get().split(":");
 				String[] redstone = ConfigurationManager.GENERAL.redstone_block_spawn.get().split(":");
 				
+				// Blocks
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(stone[0], stone[1])))
+				{
+					EventBlock(event, block, InfiniOresBlocks.DEPLETED_STONE.get().defaultBlockState(), drops, world, pos, state, fortune);
+				}
+				
+				// Ores
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(coal[0], coal[1])))
 				{
 					EventBlock(event, block, InfiniOresBlocks.COAL_ORE.get().defaultBlockState(), drops, world, pos, state, fortune);
@@ -86,7 +96,7 @@ public class OreMineEvent
 		}
 	}
 
-	@SuppressWarnings("static-access")
+	@SuppressWarnings({ "static-access" })
 	private static void EventBlock(BreakEvent event, Block block, BlockState spawn, NonNullList<ItemStack> drops, ServerWorld world, BlockPos pos, BlockState state, int fortune) 
 	{
 		world.setBlockAndUpdate(pos, spawn);

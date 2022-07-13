@@ -1,0 +1,42 @@
+itemGroup.infiniores_tab=InfiniOres
+
+tile.depleted_ore.name=Depleted Stone
+tile.depleted_ore_coal.name=Depleted Ore
+tile.depleted_ore_diamond.name=Depleted Ore
+tile.depleted_ore_emerald.name=Depleted Ore
+tile.depleted_ore_gold.name=Depleted Ore
+tile.depleted_ore_iron.name=Depleted Ore
+tile.depleted_ore_lapis.name=Depleted Ore
+tile.depleted_ore_redstone.name=Depleted Ore
+
+tile.depleted_block_andesite.name=Depleted Andesite
+tile.depleted_block_diorite.name=Depleted Diorite
+tile.depleted_block_granite.name=Depleted Granite
+
+tile.depleted_block_netherrack.name=Depleted Netherrack
+tile.depleted_block_magma.name=Depleted Magma
+tile.depleted_block_quartz.name=Depleted Netherrack
+tile.depleted_block_glowstone.name=Depleted Glowstone
+tile.depleted_block_obsidian.name=Depleted Obsidian
+tile.depleted_block_nether_brick.name=Depleted Nether Brick
+tile.depleted_block_soul_sand.name=Depleted Soul Sand
+tile.depleted_block_end_stone.name=Depleted End Stone
+
+tile.depleted_block_gravel.name=Depleted Gravel
+tile.depleted_block_sand.name=Depleted Sand
+tile.depleted_block_sandstone.name=Depleted Sandstone
+tile.depleted_block_sandstone_chiseled.name=Depleted Sandstone
+tile.depleted_block_sandstone_smooth.name=Depleted Sandstone
+tile.depleted_block_red_sand.name=Depleted Sand
+tile.depleted_block_red_sandstone.name=Depleted Sandstone
+tile.depleted_block_grass.name=Depleted Dirt
+tile.depleted_block_dirt.name=Depleted Dirt
+tile.depleted_block_coarse_dirt.name=Depleted Dirt
+tile.depleted_block_podzol.name=Depleted Dirt
+tile.depleted_block_mycelium.name=Depleted Dirt
+tile.depleted_block_snow.name=Depleted Snow
+tile.depleted_block_ice.name=Depleted Ice
+tile.depleted_block_packed_ice.name=Depleted Ice
+
+tile.depleted_block_clay.name=Depleted Clay
+tile.depleted_block_hardened_clay.name=Depleted Terracotta

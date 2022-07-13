@@ -1,11 +1,11 @@
 {
-	"block.infiniores.depleted_ore": "Depleted Ore",
-	"block.infiniores.depleted_ore_coal": "Depleted Ore",
-	"block.infiniores.depleted_ore_diamond": "Depleted Ore",
-	"block.infiniores.depleted_ore_emerald": "Depleted Ore",
-	"block.infiniores.depleted_ore_gold": "Depleted Ore",
-	"block.infiniores.depleted_ore_iron": "Depleted Ore",
-	"block.infiniores.depleted_ore_lapis": "Depleted Ore",
-	"block.infiniores.depleted_ore_redstone": "Depleted Ore",
+	"block.infiniores.depleted_ore": "Depleted Stone",
+	"block.infiniores.depleted_ore_coal": "Depleted Coal Ore",
+	"block.infiniores.depleted_ore_diamond": "Depleted Diamond Ore",
+	"block.infiniores.depleted_ore_emerald": "Depleted Emerald Ore",
+	"block.infiniores.depleted_ore_gold": "Depleted Gold Ore",
+	"block.infiniores.depleted_ore_iron": "Depleted Iron Ore",
+	"block.infiniores.depleted_ore_lapis": "Depleted Lapis Ore",
+	"block.infiniores.depleted_ore_redstone": "Depleted Redstone Ore",
 	"itemGroup.infiniores": "InfiniOres"
 }

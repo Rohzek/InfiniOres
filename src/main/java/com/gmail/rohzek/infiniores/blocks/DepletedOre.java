@@ -3,6 +3,7 @@ package com.gmail.rohzek.infiniores.blocks;
 import java.util.Random;
 
 import com.gmail.rohzek.infiniores.blocks.tileentity.TileEntityOre;
+import com.gmail.rohzek.infiniores.util.LogHelper;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -20,26 +21,36 @@ public class DepletedOre extends Block
 {
 	public Block regenerate;
 	public String name;
-	public int level;
 	
-	public DepletedOre(Block block, int level) 
+	public enum HarvestLevel 
 	{
-		super(Properties.of(Material.STONE));
+		NONE(0),
+		WOOD(1),
+		GOLD(1),
+		STONE(2),
+		IRON(3),
+		DIAMOND(4),
+		NETHERITE(4);
+		
+		private final int value;
+		
+		HarvestLevel(int value)
+		{
+			this.value = value;
+		}
+		
+		private int value() 
+		{
+			return value;
+		}
+	}
+	
+	public DepletedOre(Block block, HarvestLevel level) 
+	{
+		// Strength sets hardness as float, blast resistance as float. 3 and 3 are default values for ores
+		super(Properties.of(Material.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(level.value()).strength(3f, 3f).requiresCorrectToolForDrops());
 
-		this.level = level;
 		regenerate = block;
-	}
-	
-	@Override
-	public ToolType getHarvestTool(BlockState state) 
-	{
-		return ToolType.PICKAXE;
-	}
-	
-	@Override
-	public int getHarvestLevel(BlockState state) 
-	{
-		return this.level;
 	}
 	
 	@Override
@@ -47,21 +58,13 @@ public class DepletedOre extends Block
 	{
 		if (!world.isClientSide)
         {
-        	if(!(this == InfiniOresBlocks.DEPLETED_ORE.get())) 
-        	{
-        		world.setBlockAndUpdate(pos, regenerate.defaultBlockState());
-        	}
-        	
+			LogHelper.debug("I should be ticking!");
+			
+			world.setBlockAndUpdate(pos, regenerate.defaultBlockState());
+			
+    		LogHelper.debug("I sholuld be setting " + this.getBlock().getName() + " to " + regenerate.getName());
         }
 	}
-	
-	/*
-	@Override
-	public Item asItem() 
-	{
-		return Blocks.COBBLESTONE.asItem();
-	}
-	*/
 	
 	@Override
 	public void setPlacedBy(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack)

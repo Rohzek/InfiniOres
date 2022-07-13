@@ -1,5 +1,5 @@
 {
-    "parent": "infiniores:block/depleted_ore",
+    "parent": "infiniores:block/depleted_ore_gold",
 	"display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

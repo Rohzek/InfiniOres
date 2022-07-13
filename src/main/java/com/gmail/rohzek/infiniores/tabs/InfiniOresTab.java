@@ -24,7 +24,10 @@ public class InfiniOresTab extends ItemGroup
 	@Override
 	public void fillItemList(NonNullList<ItemStack> itemStacks) 
 	{
-		itemStacks.add(new ItemStack(InfiniOresBlocks.DEPLETED_ORE.get().asItem()));
+		// Blocks
+		itemStacks.add(new ItemStack(InfiniOresBlocks.DEPLETED_STONE.get().asItem()));
+		
+		// Ores
 		itemStacks.add(new ItemStack(InfiniOresBlocks.COAL_ORE.get().asItem()));
 		itemStacks.add(new ItemStack(InfiniOresBlocks.DIAMOND_ORE.get().asItem()));
 		itemStacks.add(new ItemStack(InfiniOresBlocks.EMERALD_ORE.get().asItem()));
