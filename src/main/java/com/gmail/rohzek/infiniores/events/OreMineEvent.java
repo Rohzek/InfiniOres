@@ -50,6 +50,8 @@ public class OreMineEvent
 				
 				// Blocks
 				String[] stone = ConfigurationManager.GENERAL.stone_block_spawn.get().split(":");
+				// Blocks
+				String[] oak = ConfigurationManager.GENERAL.oak_block_spawn.get().split(":");
 				// Ores
 				String[] coal = ConfigurationManager.GENERAL.coal_block_spawn.get().split(":");
 				String[] diamond = ConfigurationManager.GENERAL.diamond_block_spawn.get().split(":");

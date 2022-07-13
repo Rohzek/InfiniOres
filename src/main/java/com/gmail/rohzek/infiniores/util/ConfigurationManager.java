@@ -76,7 +76,7 @@ public class ConfigurationManager
     	public final ForgeConfigSpec.ConfigValue<Integer> redstone_block_chance;
     	
     	// BLOCKS
-    	// Coal Block
+    	// Stone Block
     	public final ForgeConfigSpec.ConfigValue<String> stone_block_spawn;
     	public final ForgeConfigSpec.ConfigValue<List<String>> stone_block_replacement;
     	public final ForgeConfigSpec.ConfigValue<Boolean> stone_block_randomized_replacement;
@@ -84,7 +84,14 @@ public class ConfigurationManager
     	public final ForgeConfigSpec.ConfigValue<Boolean> stone_block_life_time_randomized;
     	public final ForgeConfigSpec.ConfigValue<Integer> stone_block_chance;
     	
-    	//public static List<DepletedOre> ORES = new ArrayList<DepletedOre>();
+    	// LOGS
+    	// Oak
+    	public final ForgeConfigSpec.ConfigValue<String> oak_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> oak_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Integer> oak_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> oak_block_chance;
 
         public General(ForgeConfigSpec.Builder builder)
         {
@@ -367,6 +374,41 @@ public class ConfigurationManager
 	            		.comment("The chance to spawn the item (as a percentage)")
 	            		.translation("stone_block_chance.infiniores.config")
 	            		.define("stone_block_chance", 100);
+	        	builder.pop();
+	        builder.pop();
+	        
+	        builder.push("Wood Configurations");
+		        builder.push("Stone Configurations");
+	        	oak_block_spawn = builder
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("oak_block_spawn.infiniores.config")
+	            		.define("oak_block_spawn", "minecraft:stone");
+	            
+	        	oak_block_replacement = builder
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("oak_block_replacement.infiniores.config")
+	            		.define("oak_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:stone")));
+	           
+	        	oak_block_randomized_replacement = builder
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("oak_block_randomized_replacement.infiniores.config")
+	            		.define("oak_block_randomized_replacement", false);
+	            
+	        	oak_block_life_time = builder
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("oak_block_life_time.infiniores.config")
+	            		.define("oak_block_life_time", 20);
+	            
+	        	oak_block_life_time_randomized = builder
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("oak_block_life_time_randomized.infiniores.config")
+	            		.define("oak_block_life_time_randomized", false);
+	            
+	        	oak_block_chance = builder
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("oak_block_chance.infiniores.config")
+	            		.define("oak_block_chance", 100);
+	        	builder.pop();
 	        builder.pop();
         }
     }

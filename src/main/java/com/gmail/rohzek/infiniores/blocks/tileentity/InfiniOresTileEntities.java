@@ -15,7 +15,8 @@ public class InfiniOresTileEntities
 	public static RegistryObject<TileEntityType<TileEntityOre>> ORE_TILE_ENTITY = TILE_ENTITIES.register("ore_tile_entity", () -> TileEntityType.Builder.of
 			(TileEntityOre::new,
 					// Blocks
-					InfiniOresBlocks.DEPLETED_STONE.get(), 
+					InfiniOresBlocks.DEPLETED_STONE.get(),
+					
 					// Ores
 					InfiniOresBlocks.COAL_ORE.get(), 
 					InfiniOresBlocks.DIAMOND_ORE.get(), 
@@ -24,6 +25,13 @@ public class InfiniOresTileEntities
 					InfiniOresBlocks.GOLD_ORE.get(), 
 					InfiniOresBlocks.LAPIS_ORE.get(), 
 					InfiniOresBlocks.REDSTONE_ORE.get()
+			).build(null));
+	
+	public static RegistryObject<TileEntityType<TileEntityLog>> LOG_TILE_ENTITY = TILE_ENTITIES.register("log_tile_entity", () -> TileEntityType.Builder.of
+			(TileEntityLog::new,
+					// Logs
+					InfiniOresBlocks.OAK_LOG.get(),
+					InfiniOresBlocks.OAK_WOOD.get()
 			).build(null));
 	
 	public static void register(IEventBus bus) 

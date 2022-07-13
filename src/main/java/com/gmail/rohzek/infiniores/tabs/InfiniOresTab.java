@@ -36,5 +36,8 @@ public class InfiniOresTab extends ItemGroup
 		itemStacks.add(new ItemStack(InfiniOresBlocks.LAPIS_ORE.get().asItem()));
 		itemStacks.add(new ItemStack(InfiniOresBlocks.REDSTONE_ORE.get().asItem()));
 		
+		// Logs
+		itemStacks.add(new ItemStack(InfiniOresBlocks.OAK_LOG.get().asItem()));
+		itemStacks.add(new ItemStack(InfiniOresBlocks.OAK_WOOD.get().asItem()));
 	};
 }

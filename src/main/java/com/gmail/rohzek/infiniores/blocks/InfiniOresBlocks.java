@@ -31,6 +31,10 @@ public class InfiniOresBlocks
 	public static final RegistryObject<DepletedOre> GOLD_ORE = registerBlock("depleted_ore_gold", () -> new DepletedOre(Blocks.GOLD_ORE, HarvestLevel.IRON));
 	public static final RegistryObject<DepletedOre> LAPIS_ORE = registerBlock("depleted_ore_lapis", () -> new DepletedOre(Blocks.LAPIS_ORE, HarvestLevel.STONE));
 	public static final RegistryObject<DepletedOre> REDSTONE_ORE = registerBlock("depleted_ore_redstone", () -> new DepletedOre(Blocks.REDSTONE_ORE, HarvestLevel.IRON));
+	
+	// Logs
+	public static final RegistryObject<DepletedLog> OAK_LOG = registerBlock("depleted_log_oak", () -> new DepletedLog(Blocks.OAK_LOG));
+	public static final RegistryObject<DepletedLog> OAK_WOOD = registerBlock("depleted_wood_oak", () -> new DepletedLog(Blocks.OAK_WOOD));
 
 	public static void register(IEventBus bus) 
 	{

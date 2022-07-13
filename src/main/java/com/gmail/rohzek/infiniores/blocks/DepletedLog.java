@@ -17,39 +17,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.ToolType;
 
-public class DepletedOre extends Block
+public class DepletedLog extends Block
 {
 	public Block regenerate;
 	
-	public enum HarvestLevel 
+	public DepletedLog(Block block) 
 	{
-		NONE(0),
-		WOOD(1),
-		GOLD(1),
-		STONE(2),
-		IRON(3),
-		DIAMOND(4),
-		NETHERITE(4);
-		
-		private final int value;
-		
-		HarvestLevel(int value)
-		{
-			this.value = value;
-		}
-		
-		private int value() 
-		{
-			return value;
-		}
-	}
-	
-	public DepletedOre(Block block, HarvestLevel level) 
-	{
-		// Strength sets hardness as float, blast resistance as float. 3 and 3 are default values for ores
-		super(Properties.of(Material.STONE).harvestTool(ToolType.PICKAXE).harvestLevel(level.value()).strength(3f, 3f).requiresCorrectToolForDrops());
-
-		regenerate = block;
+		super(Properties.of(Material.WOOD).harvestTool(ToolType.PICKAXE).strength(2f, 2f));
 	}
 	
 	@Override

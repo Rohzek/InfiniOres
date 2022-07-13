@@ -7,5 +7,7 @@
 	"block.infiniores.depleted_ore_iron": "Depleted Iron Ore",
 	"block.infiniores.depleted_ore_lapis": "Depleted Lapis Ore",
 	"block.infiniores.depleted_ore_redstone": "Depleted Redstone Ore",
+	"block.infiniores.depleted_log_oak": "Depleted Oak Log",
+	"block.infiniores.depleted_wood_oak": "Depleted Oak Wood",
 	"itemGroup.infiniores": "InfiniOres"
 }
