@@ -15,6 +15,7 @@ public class ConfigurationManager
     public static class General 
     {
     	public final ForgeConfigSpec.ConfigValue<Boolean> isDebug;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> adventureMode;
     	
     	// ORES
     	
@@ -91,8 +92,13 @@ public class ConfigurationManager
             
             isDebug = builder
                     .comment("Enables/Disables debug mode (SPAMS LOGS! Is for detailed bug reports; You probably don't want this for normal play) [false/true|default:false]")
-                    .translation("debugmode.simpledivegear.config")
+                    .translation("debugmode.infiniores.config")
                     .define("isDebug", false);
+            
+            adventureMode = builder
+                    .comment("If enabled, depleted ores only spawn in Adventure mode [false/true|default:true]")
+                    .translation("adventuremode.infiniores.config")
+                    .define("adventureMode", true);
             
             builder.pop();
             
@@ -100,54 +106,100 @@ public class ConfigurationManager
 	            builder.push("Coal Configurations");
 	            
 	            coal_block_spawn = builder
-	            		.comment("")
-	            		.translation("")
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("coal_block_spawn.infiniores.config")
 	            		.define("coal_block_spawn", "minecraft:coal_ore");
 	            
 	            coal_block_replacement = builder
-	            		.comment("")
-	            		.translation("")
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("coal_block_replacement.infiniores.config")
 	            		.define("coal_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:coal_ore")));
 	           
 	            coal_block_randomized_replacement = builder
-	            		.comment("")
-	            		.translation("coal_block_randomized_replacement")
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("coal_block_randomized_replacement.infiniores.config")
 	            		.define("coal_block_randomized_replacement", false);
 	            
 	            coal_block_life_time = builder
-	            		.comment("")
-	            		.translation("")
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("coal_block_life_time.infiniores.config")
 	            		.define("coal_block_life_time", 20);
 	            
 	            coal_block_life_time_randomized = builder
-	            		.comment("")
-	            		.translation("")
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("coal_block_life_time_randomized.infiniores.config")
 	            		.define("coal_block_life_time_randomized", false);
 	            
 	            coal_block_chance = builder
-	            		.comment("")
-	            		.translation("")
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("coal_block_chance.infiniores.config")
 	            		.define("coal_block_chance", 100);
 	            
 	            builder.pop();
 	            
 	            builder.push("Diamond Configuration");
-	            diamond_block_spawn = builder.comment("").translation("").define("diamond_block_spawn", "minecraft:diamond_ore");
-	            diamond_block_replacement = builder.comment("").translation("").define("diamond_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:diamond_ore")));
-	            diamond_block_randomized_replacement = builder.comment("").translation("diamond_block_randomized_replacement").define("diamond_block_randomized_replacement", false);
-	            diamond_block_life_time = builder.comment("").translation("").define("diamond_block_life_time", 20);
-	            diamond_block_life_time_randomized = builder.comment("").translation("").define("diamond_block_life_time_randomized", false);
-	            diamond_block_chance = builder.comment("").translation("").define("diamond_block_chance", 100);
+	            diamond_block_spawn = builder
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("diamond_block_spawn.infiniores.config")
+	            		.define("diamond_block_spawn", "minecraft:diamond_ore");
+	            
+	            diamond_block_replacement = builder
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("diamond_block_replacement.infiniores.config")
+	            		.define("diamond_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:diamond_ore")));
+	            
+	            diamond_block_randomized_replacement = builder
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("diamond_block_randomized_replacement.infiniores.config")
+	            		.define("diamond_block_randomized_replacement", false);
+	            
+	            diamond_block_life_time = builder
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("diamond_block_life_time.infiniores.config")
+	            		.define("diamond_block_life_time", 20);
+	            
+	            diamond_block_life_time_randomized = builder
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("diamond_block_life_time_randomized.infiniores.config")
+	            		.define("diamond_block_life_time_randomized", false);
+	            
+	            diamond_block_chance = builder
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("diamond_block_chance.infiniores.config")
+	            		.define("diamond_block_chance", 100);
 	            
 	            builder.pop();
 	            
 	            builder.push("Emerald Configuration");
-	            emerald_block_spawn = builder.comment("").translation("").define("emerald_block_spawn", "minecraft:emerald_ore");
-	            emerald_block_replacement = builder.comment("").translation("").define("emerald_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:emerald_ore")));
-	            emerald_block_randomized_replacement = builder.comment("").translation("emerald_block_randomized_replacement").define("emerald_block_randomized_replacement", false);
-	            emerald_block_life_time = builder.comment("").translation("").define("emerald_block_life_time", 20);
-	            emerald_block_life_time_randomized = builder.comment("").translation("").define("emerald_block_life_time_randomized", false);
-	            emerald_block_chance = builder.comment("").translation("").define("emerald_block_chance", 100);
+	            emerald_block_spawn = builder
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("emerald_block_spawn.infiniores.config")
+	            		.define("emerald_block_spawn", "minecraft:emerald_ore");
+	            
+	            emerald_block_replacement = builder
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("emerald_block_replacement.infiniores.config")
+	            		.define("emerald_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:emerald_ore")));
+	            
+	            emerald_block_randomized_replacement = builder
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("emerald_block_randomized_replacement.infiniores.config")
+	            		.define("emerald_block_randomized_replacement", false);
+	            
+	            emerald_block_life_time = builder
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("emerald_block_life_time.infiniores.config")
+	            		.define("emerald_block_life_time", 20);
+	            
+	            emerald_block_life_time_randomized = builder
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("emerald_block_life_time_randomized.infiniores.config")
+	            		.define("emerald_block_life_time_randomized", false);
+	            
+	            emerald_block_chance = builder
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("emerald_block_chance.infiniores.config")
+	            		.define("emerald_block_chance", 100);
 	            
 	            builder.pop();
 	            
@@ -191,36 +243,37 @@ public class ConfigurationManager
 	            
 	            builder.pop();
 	        builder.pop();
+	        
 	        builder.push("Block Configurations");
 	        	builder.push("Stone Configurations");
 	        	stone_block_spawn = builder
 	            		.comment("Parent block to spawn the depleted version from")
-	            		.translation("")
+	            		.translation("stone_block_spawn.infiniores.config")
 	            		.define("stone_block_spawn", "minecraft:stone");
 	            
 	        	stone_block_replacement = builder
 	            		.comment("Block to be spawned from depleted version")
-	            		.translation("")
+	            		.translation("stone_block_replacement.infiniores.config")
 	            		.define("stone_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:stone")));
 	           
 	        	stone_block_randomized_replacement = builder
 	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
-	            		.translation("stone_block_randomized_replacement")
+	            		.translation("stone_block_randomized_replacement.infiniores.config")
 	            		.define("stone_block_randomized_replacement", false);
 	            
 	        	stone_block_life_time = builder
-	            		.comment("Amount of time it should take to respawn block")
-	            		.translation("")
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("stone_block_life_time.infiniores.config")
 	            		.define("stone_block_life_time", 20);
 	            
 	        	stone_block_life_time_randomized = builder
 	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
-	            		.translation("")
+	            		.translation("stone_block_life_time_randomized.infiniores.config")
 	            		.define("stone_block_life_time_randomized", false);
 	            
 	        	stone_block_chance = builder
 	            		.comment("The chance to spawn the item (as a percentage)")
-	            		.translation("")
+	            		.translation("stone_block_chance.infiniores.config")
 	            		.define("stone_block_chance", 100);
 	        builder.pop();
         }

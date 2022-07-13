@@ -18,6 +18,9 @@ public class InfiniOres
 {
 	public static final InfiniOresTab INFINI_ORES_TAB = new InfiniOresTab(Reference.MODID);
 	
+	// TO DO:
+	// Finish implementing the rest of the blocks including logs
+	
 	public InfiniOres() 
 	{
 		// Register the mod
