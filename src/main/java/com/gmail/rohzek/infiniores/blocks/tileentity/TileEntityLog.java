@@ -26,7 +26,7 @@ private static Random random = new Random();
 	
 	public TileEntityLog() 
 	{
-		super(InfiniOresTileEntities.ORE_TILE_ENTITY.get());
+		super(InfiniOresTileEntities.LOG_TILE_ENTITY.get());
 	}
 	
 	public TileEntityLog(TileEntityType<?> tileEntity, DepletedLog log) 
@@ -34,10 +34,31 @@ private static Random random = new Random();
 		super(tileEntity);
 		
 		// Logs
-		if(log == InfiniOresBlocks.OAK_LOG.get() || log == InfiniOresBlocks.OAK_WOOD.get())
+		if(log == InfiniOresBlocks.OAK_LOG.get())
 		{
-			timer = ConfigurationManager.GENERAL.oak_block_life_time_randomized.get() ? random.nextInt((int) ConfigurationManager.GENERAL.oak_block_life_time.get()) : ConfigurationManager.GENERAL.oak_block_life_time.get();
-			log.regenerate = ConfigurationManager.GENERAL.oak_block_randomized_replacement.get() ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.oak_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.oak_block_replacement.get().size())))) : ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.oak_block_replacement.get().get(0)));
+			timer = ConfigurationManager.GENERAL.oak_log_block_life_time_randomized.get() ? random.nextInt((int) ConfigurationManager.GENERAL.oak_log_block_life_time.get()) : ConfigurationManager.GENERAL.oak_log_block_life_time.get();
+			log.regenerate = ConfigurationManager.GENERAL.oak_log_block_randomized_replacement.get() ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.oak_log_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.oak_log_block_replacement.get().size())))) : ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.oak_log_block_replacement.get().get(0)));
+		}
+		
+		// Stripped Logs
+		if(log == InfiniOresBlocks.OAK_LOG_STRIPPED.get())
+		{
+			timer = ConfigurationManager.GENERAL.oak_log_stripped_block_life_time_randomized.get() ? random.nextInt((int) ConfigurationManager.GENERAL.oak_log_stripped_block_life_time.get()) : ConfigurationManager.GENERAL.oak_log_stripped_block_life_time.get();
+			log.regenerate = ConfigurationManager.GENERAL.oak_log_stripped_block_randomized_replacement.get() ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.oak_log_stripped_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.oak_log_stripped_block_replacement.get().size())))) : ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.oak_log_stripped_block_replacement.get().get(0)));
+		}
+		
+		// Wood
+		if(log == InfiniOresBlocks.OAK_WOOD.get())
+		{
+			timer = ConfigurationManager.GENERAL.oak_wood_block_life_time_randomized.get() ? random.nextInt((int) ConfigurationManager.GENERAL.oak_wood_block_life_time.get()) : ConfigurationManager.GENERAL.oak_wood_block_life_time.get();
+			log.regenerate = ConfigurationManager.GENERAL.oak_wood_block_randomized_replacement.get() ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.oak_wood_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.oak_wood_block_replacement.get().size())))) : ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.oak_wood_block_replacement.get().get(0)));
+		}
+		
+		// Stripped Wood
+		if(log == InfiniOresBlocks.OAK_WOOD_STRIPPED.get())
+		{
+			timer = ConfigurationManager.GENERAL.oak_wood_stripped_block_life_time_randomized.get() ? random.nextInt((int) ConfigurationManager.GENERAL.oak_wood_stripped_block_life_time.get()) : ConfigurationManager.GENERAL.oak_wood_stripped_block_life_time.get();
+			log.regenerate = ConfigurationManager.GENERAL.oak_wood_stripped_block_randomized_replacement.get() ? ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.oak_wood_stripped_block_replacement.get().get(random.nextInt(ConfigurationManager.GENERAL.oak_wood_stripped_block_replacement.get().size())))) : ForgeRegistries.BLOCKS.getValue(new ResourceLocation(ConfigurationManager.GENERAL.oak_wood_stripped_block_replacement.get().get(0)));
 		}
 	}
 	

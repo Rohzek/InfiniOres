@@ -86,12 +86,39 @@ public class ConfigurationManager
     	
     	// LOGS
     	// Oak
-    	public final ForgeConfigSpec.ConfigValue<String> oak_block_spawn;
-    	public final ForgeConfigSpec.ConfigValue<List<String>> oak_block_replacement;
-    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_block_randomized_replacement;
-    	public final ForgeConfigSpec.ConfigValue<Integer> oak_block_life_time;
-    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_block_life_time_randomized;
-    	public final ForgeConfigSpec.ConfigValue<Integer> oak_block_chance;
+    	public final ForgeConfigSpec.ConfigValue<String> oak_log_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> oak_log_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_log_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Integer> oak_log_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_log_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> oak_log_block_chance;
+    	
+    	// STRIPPED LOGS
+    	// Oak
+    	public final ForgeConfigSpec.ConfigValue<String> oak_log_stripped_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> oak_log_stripped_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_log_stripped_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Integer> oak_log_stripped_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_log_stripped_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> oak_log_stripped_block_chance;
+    	
+    	// WOOD
+    	// Oak
+    	public final ForgeConfigSpec.ConfigValue<String> oak_wood_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> oak_wood_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_wood_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Integer> oak_wood_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_wood_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> oak_wood_block_chance;
+    	
+    	// STRIPPED WOOD
+    	// Oak
+    	public final ForgeConfigSpec.ConfigValue<String> oak_wood_stripped_block_spawn;
+    	public final ForgeConfigSpec.ConfigValue<List<String>> oak_wood_stripped_block_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_wood_stripped_block_randomized_replacement;
+    	public final ForgeConfigSpec.ConfigValue<Integer> oak_wood_stripped_block_life_time;
+    	public final ForgeConfigSpec.ConfigValue<Boolean> oak_wood_stripped_block_life_time_randomized;
+    	public final ForgeConfigSpec.ConfigValue<Integer> oak_wood_stripped_block_chance;
 
         public General(ForgeConfigSpec.Builder builder)
         {
@@ -378,36 +405,132 @@ public class ConfigurationManager
 	        builder.pop();
 	        
 	        builder.push("Wood Configurations");
-		        builder.push("Stone Configurations");
-	        	oak_block_spawn = builder
+		        builder.push("Oak Log Configurations");
+	        	oak_log_block_spawn = builder
 	            		.comment("Parent block to spawn the depleted version from")
-	            		.translation("oak_block_spawn.infiniores.config")
-	            		.define("oak_block_spawn", "minecraft:stone");
+	            		.translation("oak_log_block_spawn.infiniores.config")
+	            		.define("oak_log_block_spawn", "minecraft:oak_log");
 	            
-	        	oak_block_replacement = builder
+	        	oak_log_block_replacement = builder
 	            		.comment("Block to be spawned from depleted version")
-	            		.translation("oak_block_replacement.infiniores.config")
-	            		.define("oak_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:stone")));
+	            		.translation("oak_log_block_replacement.infiniores.config")
+	            		.define("oak_log_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:oak_log")));
 	           
-	        	oak_block_randomized_replacement = builder
+	        	oak_log_block_randomized_replacement = builder
 	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
-	            		.translation("oak_block_randomized_replacement.infiniores.config")
-	            		.define("oak_block_randomized_replacement", false);
+	            		.translation("oak_log_block_randomized_replacement.infiniores.config")
+	            		.define("oak_log_block_randomized_replacement", false);
 	            
-	        	oak_block_life_time = builder
+	        	oak_log_block_life_time = builder
 	            		.comment("Amount of time it should take to respawn block, in MC ticks")
-	            		.translation("oak_block_life_time.infiniores.config")
-	            		.define("oak_block_life_time", 20);
+	            		.translation("oak_log_block_life_time.infiniores.config")
+	            		.define("oak_log_block_life_time", 20);
 	            
-	        	oak_block_life_time_randomized = builder
+	        	oak_log_block_life_time_randomized = builder
 	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
-	            		.translation("oak_block_life_time_randomized.infiniores.config")
-	            		.define("oak_block_life_time_randomized", false);
+	            		.translation("oak_log_block_life_time_randomized.infiniores.config")
+	            		.define("oak_log_block_life_time_randomized", false);
 	            
-	        	oak_block_chance = builder
+	        	oak_log_block_chance = builder
 	            		.comment("The chance to spawn the item (as a percentage)")
-	            		.translation("oak_block_chance.infiniores.config")
-	            		.define("oak_block_chance", 100);
+	            		.translation("oak_log_block_chance.infiniores.config")
+	            		.define("oak_log_block_chance", 100);
+	        	builder.pop();
+	        	
+	        	builder.push("Stripped Oak Log Configurations");
+	        	oak_log_stripped_block_spawn = builder
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("oak_log_stripped_block_spawn.infiniores.config")
+	            		.define("oak_log_stripped_block_spawn", "minecraft:stripped_oak_log");
+	            
+	        	oak_log_stripped_block_replacement = builder
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("oak_log_stripped_block_replacement.infiniores.config")
+	            		.define("oak_log_stripped_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:stripped_oak_log")));
+	           
+	        	oak_log_stripped_block_randomized_replacement = builder
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("oak_log_stripped_block_randomized_replacement.infiniores.config")
+	            		.define("oak_log_stripped_block_randomized_replacement", false);
+	            
+	        	oak_log_stripped_block_life_time = builder
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("oak_log_stripped_block_life_time.infiniores.config")
+	            		.define("oak_log_stripped_block_life_time", 20);
+	            
+	        	oak_log_stripped_block_life_time_randomized = builder
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("oak_log_stripped_block_life_time_randomized.infiniores.config")
+	            		.define("oak_log_stripped_block_life_time_randomized", false);
+	            
+	        	oak_log_stripped_block_chance = builder
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("oak_log_stripped_block_chance.infiniores.config")
+	            		.define("oak_log_stripped_block_chance", 100);
+	        	builder.pop();
+	        	
+	        	builder.push("Oak Wood Configurations");
+	        	oak_wood_block_spawn = builder
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("oak_wood_block_spawn.infiniores.config")
+	            		.define("oak_wood_block_spawn", "minecraft:oak_wood");
+	            
+	        	oak_wood_block_replacement = builder
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("oak_wood_block_replacement.infiniores.config")
+	            		.define("oak_wood_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:oak_wood")));
+	           
+	        	oak_wood_block_randomized_replacement = builder
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("oak_wood_block_randomized_replacement.infiniores.config")
+	            		.define("oak_wood_block_randomized_replacement", false);
+	            
+	        	oak_wood_block_life_time = builder
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("oak_wood_block_life_time.infiniores.config")
+	            		.define("oak_wood_block_life_time", 20);
+	            
+	        	oak_wood_block_life_time_randomized = builder
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("oak_wood_block_life_time_randomized.infiniores.config")
+	            		.define("oak_wood_block_life_time_randomized", false);
+	            
+	        	oak_wood_block_chance = builder
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("oak_wood_block_chance.infiniores.config")
+	            		.define("oak_wood_block_chance", 100);
+	        	builder.pop();
+	        	
+	        	builder.push("Stripped Oak Wood Configurations");
+	        	oak_wood_stripped_block_spawn = builder
+	            		.comment("Parent block to spawn the depleted version from")
+	            		.translation("oak_wood_stripped_block_spawn.infiniores.config")
+	            		.define("oak_wood_stripped_block_spawn", "minecraft:stripped_oak_wood");
+	            
+	        	oak_wood_stripped_block_replacement = builder
+	            		.comment("Block to be spawned from depleted version")
+	            		.translation("oak_wood_stripped_block_replacement.infiniores.config")
+	            		.define("oak_wood_stripped_block_replacement", new ArrayList<String>(Arrays.asList("minecraft:stripped_oak_wood")));
+	           
+	        	oak_wood_stripped_block_randomized_replacement = builder
+	            		.comment("Determines if the block to be spawned should be randomized from list, or always return the first entry")
+	            		.translation("oak_wood_stripped_block_randomized_replacement.infiniores.config")
+	            		.define("oak_wood_stripped_block_randomized_replacement", false);
+	            
+	        	oak_wood_stripped_block_life_time = builder
+	            		.comment("Amount of time it should take to respawn block, in MC ticks")
+	            		.translation("oak_wood_stripped_block_life_time.infiniores.config")
+	            		.define("oak_wood_stripped_block_life_time", 20);
+	            
+	        	oak_wood_stripped_block_life_time_randomized = builder
+	            		.comment("Determines if the amount of time should be randomized between 0 and the max time specified by block_life_time")
+	            		.translation("oak_wood_stripped_block_life_time_randomized.infiniores.config")
+	            		.define("oak_wood_stripped_block_life_time_randomized", false);
+	            
+	        	oak_wood_stripped_block_chance = builder
+	            		.comment("The chance to spawn the item (as a percentage)")
+	            		.translation("oak_wood_stripped_block_chance.infiniores.config")
+	            		.define("oak_wood_stripped_block_chance", 100);
 	        	builder.pop();
 	        builder.pop();
         }

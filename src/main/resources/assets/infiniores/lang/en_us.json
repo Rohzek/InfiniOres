@@ -1,5 +1,41 @@
 {
-	"block.infiniores.depleted_stone": "Depleted Stone",
+	"block.infiniores.depleted_block_stone": "Depleted Stone",
+	"block.infiniores.depleted_block_andesite": "Depleted Andesite",
+	"block.infiniores.depleted_block_diorite": "Depleted Diorite",
+	"block.infiniores.depleted_block_granite": "Depleted Granite",
+	
+	"block.infiniores.depleted_block_netherrack": "Depleted Netherrack",
+	"block.infiniores.depleted_block_magma": "Depleted Magma",
+	"block.infiniores.depleted_block_quartz": "Depleted Nether Quartz",
+	"block.infiniores.depleted_block_glowstone": "Depleted Glowstone",
+	"block.infiniores.depleted_block_obsidian": "Depleted Obsidian",
+	"block.infiniores.depleted_block_obsidian_crying": "Depleted Crying Obsidian",
+	"block.infiniores.depleted_block_bricks": "Depleted Bricks",
+	"block.infiniores.depleted_block_nether_bricks": "Depleted Nether Bricks",
+	"block.infiniores.depleted_block_soul_sand": "Depleted Soul Sand",
+	"block.infiniores.depleted_block_end_stone": "Depleted End Stone",
+	
+	"block.infiniores.depleted_block_gravel": "Depleted Gravel",
+	"block.infiniores.depleted_block_sand": "Depleted Sand",
+	"block.infiniores.depleted_block_sandstone": "Depleted Sandstone",
+	"block.infiniores.depleted_block_sandstone_chiseled": "Depleted Chiseled Sandstone",
+	"block.infiniores.depleted_block_sandstone_smooth": "Depleted Smooth Sandstone",
+	"block.infiniores.depleted_block_red_sand": "Depleted Red Sand",
+	"block.infiniores.depleted_block_red_sandstone": "Depleted Red Sandstone",
+	"block.infiniores.depleted_block_red_sandstone_chiseled": "Depleted Red Chiseled Sandstone",
+	"block.infiniores.depleted_block_red_sandstone_smooth": "Depleted Red Smooth Sandstone",
+	"block.infiniores.depleted_block_grass": "Depleted Grass",
+	"block.infiniores.depleted_block_dirt": "Depleted Dirt",
+	"block.infiniores.depleted_block_coarse_dirt": "Depleted Coarse Dirt",
+	"block.infiniores.depleted_block_podzol": "Depleted Podzol",
+	"block.infiniores.depleted_block_mycelium": "Depleted Mycelium",
+	"block.infiniores.depleted_block_snow": "Depleted Snow",
+	"block.infiniores.depleted_block_ice": "Depleted Ice",
+	"block.infiniores.depleted_block_packed_ice": "Depleted Packed Ice",
+	
+	"block.infiniores.depleted_block_clay": "Depleted Clay",
+	"block.infiniores.depleted_block_hardened_clay": "Depleted Terracotta",
+	
 	"block.infiniores.depleted_ore_coal": "Depleted Coal Ore",
 	"block.infiniores.depleted_ore_diamond": "Depleted Diamond Ore",
 	"block.infiniores.depleted_ore_emerald": "Depleted Emerald Ore",
@@ -7,7 +43,46 @@
 	"block.infiniores.depleted_ore_iron": "Depleted Iron Ore",
 	"block.infiniores.depleted_ore_lapis": "Depleted Lapis Ore",
 	"block.infiniores.depleted_ore_redstone": "Depleted Redstone Ore",
+	
 	"block.infiniores.depleted_log_oak": "Depleted Oak Log",
+	"block.infiniores.depleted_log_oak_stripped": "Depleted Stripped Oak Log",
 	"block.infiniores.depleted_wood_oak": "Depleted Oak Wood",
+	"block.infiniores.depleted_wood_oak_stripped": "Depleted Stripped Oak Wood",
+	
+	"block.infiniores.depleted_log_spruce": "Depleted Spruce Log",
+	"block.infiniores.depleted_log_spruce_stripped": "Depleted Stripped Spruce Log",
+	"block.infiniores.depleted_wood_spruce": "Depleted Spruce Wood",
+	"block.infiniores.depleted_wood_spruce_stripped": "Depleted Stripped Spruce Wood",
+	
+	"block.infiniores.depleted_log_birch": "Depleted Birch Log",
+	"block.infiniores.depleted_log_birch_stripped": "Depleted Stripped Birch Log",
+	"block.infiniores.depleted_wood_birch": "Depleted Birch Wood",
+	"block.infiniores.depleted_wood_birch_stripped": "Depleted Stripped Birch Wood",
+	
+	"block.infiniores.depleted_log_jungle": "Depleted Jungle Log",
+	"block.infiniores.depleted_log_jungle_stripped": "Depleted Stripped Jungle Log",
+	"block.infiniores.depleted_wood_jungle": "Depleted Jungle Wood",
+	"block.infiniores.depleted_wood_jungle_stripped": "Depleted Stripped Jungle Wood",
+	
+	"block.infiniores.depleted_log_acacia": "Depleted Acacia Log",
+	"block.infiniores.depleted_log_acacia_stripped": "Depleted Stripped Acacia Log",
+	"block.infiniores.depleted_wood_acacia": "Depleted Acacia Wood",
+	"block.infiniores.depleted_wood_acacia_stripped": "Depleted Stripped Acacia Wood",
+	
+	"block.infiniores.depleted_log_dark_oak": "Depleted Dark Oak Log",
+	"block.infiniores.depleted_log_dark_oak_stripped": "Depleted Stripped Dark Oak Log",
+	"block.infiniores.depleted_wood_dark_oak": "Depleted Dark Oak Wood",
+	"block.infiniores.depleted_wood_dark_oak_stripped": "Depleted Stripped Dark Oak Wood",
+	
+	"block.infiniores.depleted_log_crimson": "Depleted Crimson Stem",
+	"block.infiniores.depleted_log_crimson_stripped": "Depleted Stripped Crimson Stem",
+	"block.infiniores.depleted_wood_crimson": "Depleted Crimson Hyphae",
+	"block.infiniores.depleted_wood_crimson_stripped": "Depleted Stripped Crimson Hyphae",
+	
+	"block.infiniores.depleted_log_warped": "Depleted Warped Stem",
+	"block.infiniores.depleted_log_warped_stripped": "Depleted Stripped Warped Stem",
+	"block.infiniores.depleted_wood_warped": "Depleted Warped Hyphae",
+	"block.infiniores.depleted_wood_warped_stripped": "Depleted Stripped Warped Hyphae",
+	
 	"itemGroup.infiniores": "InfiniOres"
 }

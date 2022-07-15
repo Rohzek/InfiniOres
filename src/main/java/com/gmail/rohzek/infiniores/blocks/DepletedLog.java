@@ -2,7 +2,7 @@ package com.gmail.rohzek.infiniores.blocks;
 
 import java.util.Random;
 
-import com.gmail.rohzek.infiniores.blocks.tileentity.TileEntityOre;
+import com.gmail.rohzek.infiniores.blocks.tileentity.TileEntityLog;
 import com.gmail.rohzek.infiniores.util.LogHelper;
 
 import net.minecraft.block.Block;
@@ -24,6 +24,8 @@ public class DepletedLog extends Block
 	public DepletedLog(Block block) 
 	{
 		super(Properties.of(Material.WOOD).harvestTool(ToolType.PICKAXE).strength(2f, 2f));
+		
+		regenerate = block;
 	}
 	
 	@Override
@@ -48,7 +50,7 @@ public class DepletedLog extends Block
 	@Override
 	public TileEntity createTileEntity(BlockState state, IBlockReader world) 
 	{
-		return new TileEntityOre();
+		return new TileEntityLog();
 	}
 	
 	@Override

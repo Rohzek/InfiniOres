@@ -51,7 +51,10 @@ public class OreMineEvent
 				// Blocks
 				String[] stone = ConfigurationManager.GENERAL.stone_block_spawn.get().split(":");
 				// Blocks
-				String[] oak = ConfigurationManager.GENERAL.oak_block_spawn.get().split(":");
+				String[] oak_log = ConfigurationManager.GENERAL.oak_log_block_spawn.get().split(":");
+				String[] oak_log_stripped = ConfigurationManager.GENERAL.oak_log_stripped_block_spawn.get().split(":");
+				String[] oak_wood = ConfigurationManager.GENERAL.oak_wood_block_spawn.get().split(":");
+				String[] oak_wood_stripped = ConfigurationManager.GENERAL.oak_wood_stripped_block_spawn.get().split(":");
 				// Ores
 				String[] coal = ConfigurationManager.GENERAL.coal_block_spawn.get().split(":");
 				String[] diamond = ConfigurationManager.GENERAL.diamond_block_spawn.get().split(":");
@@ -65,6 +68,27 @@ public class OreMineEvent
 				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(stone[0], stone[1])))
 				{
 					EventBlock(event, block, InfiniOresBlocks.DEPLETED_STONE.get().defaultBlockState(), drops, world, pos, state, fortune);
+				}
+				
+				// Logs + Wood
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(oak_log[0], oak_log[1])))
+				{
+					EventBlock(event, block, InfiniOresBlocks.OAK_LOG.get().defaultBlockState(), drops, world, pos, state, fortune);
+				}
+				
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(oak_log_stripped[0], oak_log_stripped[1])))
+				{
+					EventBlock(event, block, InfiniOresBlocks.OAK_LOG_STRIPPED.get().defaultBlockState(), drops, world, pos, state, fortune);
+				}
+				
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(oak_wood[0], oak_wood[1])))
+				{
+					EventBlock(event, block, InfiniOresBlocks.OAK_WOOD.get().defaultBlockState(), drops, world, pos, state, fortune);
+				}
+				
+				if(block == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(oak_wood_stripped[0], oak_wood_stripped[1])))
+				{
+					EventBlock(event, block, InfiniOresBlocks.OAK_WOOD_STRIPPED.get().defaultBlockState(), drops, world, pos, state, fortune);
 				}
 				
 				// Ores
