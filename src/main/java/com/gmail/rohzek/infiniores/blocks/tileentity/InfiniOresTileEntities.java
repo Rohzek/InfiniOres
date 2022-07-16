@@ -36,6 +36,11 @@ public class InfiniOresTileEntities
 					InfiniOresBlocks.DEPLETED_SANDSTONE_RED.get(),
 					InfiniOresBlocks.DEPLETED_SANDSTONE_RED_CHISELED.get(),
 					InfiniOresBlocks.DEPLETED_SANDSTONE_RED_SMOOTH.get(),
+					InfiniOresBlocks.DEPLETED_SEA_LANTERN.get(),
+					InfiniOresBlocks.DEPLETED_PRISMARINE.get(),
+					InfiniOresBlocks.DEPLETED_PRISMARINE_BRICKS.get(),
+					InfiniOresBlocks.DEPLETED_DARK_PRISMARINE.get(),
+					InfiniOresBlocks.DEPLETED_PURPUR.get(),
 					
 					// Ores
 					InfiniOresBlocks.COAL_ORE.get(), 
@@ -45,7 +50,9 @@ public class InfiniOresTileEntities
 					InfiniOresBlocks.GOLD_ORE.get(), 
 					InfiniOresBlocks.LAPIS_ORE.get(), 
 					InfiniOresBlocks.REDSTONE_ORE.get(),
-					InfiniOresBlocks.DEPLETED_NETHER_QUARTZ.get()
+					InfiniOresBlocks.DEPLETED_NETHER_QUARTZ.get(),
+					InfiniOresBlocks.DEPLETED_NETHER_GOLD_ORE.get(),
+					InfiniOresBlocks.DEPLETED_ANCIENT_DEBRIS.get()
 			).build(null));
 	
 	public static RegistryObject<TileEntityType<TileEntityLog>> LOG_TILE_ENTITY = TILE_ENTITIES.register("log_tile_entity", () -> TileEntityType.Builder.of
@@ -98,6 +105,21 @@ public class InfiniOresTileEntities
 					InfiniOresBlocks.WARPED_LOG_STRIPPED.get(),
 					InfiniOresBlocks.WARPED_WOOD.get(),
 					InfiniOresBlocks.WARPED_WOOD_STRIPPED.get()
+			).build(null));
+	
+	public static RegistryObject<TileEntityType<TileEntityShovelBlock>> SHOVEL_BLOCK_TILE_ENTITY = TILE_ENTITIES.register("shovel_block_tile_entity", () -> TileEntityType.Builder.of
+			(TileEntityShovelBlock::new,
+					InfiniOresBlocks.DEPLETED_SAND.get(),
+					InfiniOresBlocks.DEPLETED_RED_SAND.get(),
+					InfiniOresBlocks.DEPLETED_GRAVEL.get(),
+					InfiniOresBlocks.DEPLETED_SOUL_SAND.get(),
+					InfiniOresBlocks.DEPLETED_GRASS.get(),
+					InfiniOresBlocks.DEPLETED_DIRT.get(),
+					InfiniOresBlocks.DEPLETED_COARSE_DIRT.get(),
+					InfiniOresBlocks.DEPLETED_PODZOL.get(),
+					InfiniOresBlocks.DEPLETED_MYCELIUM.get(),
+					InfiniOresBlocks.DEPLETED_SNOW.get(),
+					InfiniOresBlocks.DEPLETED_CLAY.get()
 			).build(null));
 	
 	public static void register(IEventBus bus) 

@@ -19,7 +19,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class TileEntityLog extends TileEntity implements ITickableTileEntity
 {
-private static Random random = new Random();
+	private static Random random = new Random();
 	
 	private int timer = 30;
 	private int chance = 100;

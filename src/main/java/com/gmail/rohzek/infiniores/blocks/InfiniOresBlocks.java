@@ -45,39 +45,28 @@ public class InfiniOresBlocks
 	public static final RegistryObject<DepletedOre> DEPLETED_SANDSTONE = registerBlock("depleted_block_sandstone", () -> new DepletedOre(Blocks.SANDSTONE, HarvestLevel.WOOD));
 	public static final RegistryObject<DepletedOre> DEPLETED_SANDSTONE_CHISELED = registerBlock("depleted_block_sandstone_chiseled", () -> new DepletedOre(Blocks.CHISELED_SANDSTONE, HarvestLevel.WOOD));
 	public static final RegistryObject<DepletedOre> DEPLETED_SANDSTONE_SMOOTH = registerBlock("depleted_block_sandstone_smooth", () -> new DepletedOre(Blocks.SMOOTH_SANDSTONE, HarvestLevel.WOOD));
+	public static final RegistryObject<DepletedOre> DEPLETED_SANDSTONE_RED = registerBlock("depleted_block_red_sandstone", () -> new DepletedOre(Blocks.RED_SANDSTONE, HarvestLevel.WOOD));
+	public static final RegistryObject<DepletedOre> DEPLETED_SANDSTONE_RED_CHISELED = registerBlock("depleted_block_red_sandstone_chiseled", () -> new DepletedOre(Blocks.CHISELED_RED_SANDSTONE, HarvestLevel.WOOD));
+	public static final RegistryObject<DepletedOre> DEPLETED_SANDSTONE_RED_SMOOTH = registerBlock("depleted_block_red_sandstone_smooth", () -> new DepletedOre(Blocks.SMOOTH_RED_SANDSTONE, HarvestLevel.WOOD));
+	public static final RegistryObject<DepletedOre> DEPLETED_PRISMARINE = registerBlock("depleted_block_prismarine", () -> new DepletedOre(Blocks.PRISMARINE, HarvestLevel.WOOD));
+	public static final RegistryObject<DepletedOre> DEPLETED_SEA_LANTERN = registerBlock("depleted_block_sea_lantern", () -> new DepletedOre(Blocks.SEA_LANTERN, HarvestLevel.NONE));
+	public static final RegistryObject<DepletedOre> DEPLETED_PRISMARINE_BRICKS = registerBlock("depleted_block_prismarine_bricks", () -> new DepletedOre(Blocks.PRISMARINE_BRICKS, HarvestLevel.WOOD));
+	public static final RegistryObject<DepletedOre> DEPLETED_DARK_PRISMARINE = registerBlock("depleted_block_dark_prismarine", () -> new DepletedOre(Blocks.DARK_PRISMARINE, HarvestLevel.WOOD));
+	public static final RegistryObject<DepletedOre> DEPLETED_PURPUR = registerBlock("depleted_block_purpur", () -> new DepletedOre(Blocks.PURPUR_BLOCK, HarvestLevel.WOOD));
 	
-	/**
-	 * TO DO:
-	 * Finish implementing the below blocks as well as:
-	 * 
-	 * Prismarine
-	 * Prismarine Bricks
-	 * Dark Prismarine
-	 * Purpur
-	 */
-	public static final RegistryObject<DepletedOre> DEPLETED_SANDSTONE_RED = registerBlock("depleted_block_red_standstone", () -> new DepletedOre(Blocks.RED_SANDSTONE, HarvestLevel.WOOD));
-	public static final RegistryObject<DepletedOre> DEPLETED_SANDSTONE_RED_CHISELED = registerBlock("depleted_block_red_standstone_chiseled", () -> new DepletedOre(Blocks.CHISELED_RED_SANDSTONE, HarvestLevel.WOOD));
-	public static final RegistryObject<DepletedOre> DEPLETED_SANDSTONE_RED_SMOOTH = registerBlock("depleted_block_red_standstone_smooth", () -> new DepletedOre(Blocks.SMOOTH_RED_SANDSTONE, HarvestLevel.WOOD));
 	
 	// Shovel Blocks
-	
-	/**
-	 * TO DO:
-	 * 
-	 * Implement the following:
-	 * 
-	 * Gravel
-	 * Sand
-	 * Red Sand
-	 * Soul Sand
-	 * Grass
-	 * Dirt
-	 * Coarse Dirt
-	 * Podzol
-	 * Mycelium
-	 * Snow
-	 * Clay
-	 */
+	public static final RegistryObject<DepletedSand> DEPLETED_SAND = registerBlock("depleted_block_sand", () -> new DepletedSand(Blocks.SAND));
+	public static final RegistryObject<DepletedSand> DEPLETED_RED_SAND = registerBlock("depleted_block_red_sand", () -> new DepletedSand(Blocks.RED_SAND));
+	public static final RegistryObject<DepletedShovelBlock> DEPLETED_GRAVEL = registerBlock("depleted_block_gravel", () -> new DepletedShovelBlock(Blocks.GRAVEL));
+	public static final RegistryObject<DepletedShovelBlock> DEPLETED_SOUL_SAND = registerBlock("depleted_block_soul_sand", () -> new DepletedShovelBlock(Blocks.SOUL_SAND));
+	public static final RegistryObject<DepletedShovelBlock> DEPLETED_GRASS = registerBlock("depleted_block_grass", () -> new DepletedShovelBlock(Blocks.GRASS_BLOCK));
+	public static final RegistryObject<DepletedShovelBlock> DEPLETED_DIRT = registerBlock("depleted_block_dirt", () -> new DepletedShovelBlock(Blocks.DIRT));
+	public static final RegistryObject<DepletedShovelBlock> DEPLETED_COARSE_DIRT = registerBlock("depleted_block_coarse_dirt", () -> new DepletedShovelBlock(Blocks.COARSE_DIRT));
+	public static final RegistryObject<DepletedShovelBlock> DEPLETED_PODZOL = registerBlock("depleted_block_podzol", () -> new DepletedShovelBlock(Blocks.PODZOL));
+	public static final RegistryObject<DepletedShovelBlock> DEPLETED_MYCELIUM = registerBlock("depleted_block_mycelium", () -> new DepletedShovelBlock(Blocks.MYCELIUM));
+	public static final RegistryObject<DepletedShovelBlock> DEPLETED_SNOW = registerBlock("depleted_block_snow", () -> new DepletedShovelBlock(Blocks.SNOW_BLOCK));
+	public static final RegistryObject<DepletedShovelBlock> DEPLETED_CLAY = registerBlock("depleted_block_clay", () -> new DepletedShovelBlock(Blocks.CLAY));
 	
 	// Ores
 	public static final RegistryObject<DepletedOre> COAL_ORE = registerBlock("depleted_ore_coal", () -> new DepletedOre(Blocks.COAL_ORE, HarvestLevel.WOOD));
@@ -88,6 +77,10 @@ public class InfiniOresBlocks
 	public static final RegistryObject<DepletedOre> LAPIS_ORE = registerBlock("depleted_ore_lapis", () -> new DepletedOre(Blocks.LAPIS_ORE, HarvestLevel.STONE));
 	public static final RegistryObject<DepletedOre> REDSTONE_ORE = registerBlock("depleted_ore_redstone", () -> new DepletedOre(Blocks.REDSTONE_ORE, HarvestLevel.IRON));
 	public static final RegistryObject<DepletedOre> DEPLETED_NETHER_QUARTZ = registerBlock("depleted_block_quartz", () -> new DepletedOre(Blocks.NETHER_QUARTZ_ORE, HarvestLevel.WOOD));
+
+	// Fix these mining levels
+	public static final RegistryObject<DepletedOre> DEPLETED_NETHER_GOLD_ORE = registerBlock("depleted_ore_nether_gold", () -> new DepletedOre(Blocks.NETHER_GOLD_ORE, HarvestLevel.WOOD));
+	public static final RegistryObject<DepletedOre> DEPLETED_ANCIENT_DEBRIS = registerBlock("depleted_ore_ancient_debris", () -> new DepletedOre(Blocks.ANCIENT_DEBRIS, HarvestLevel.WOOD));
 	
 	// Logs
 	// Oak

@@ -1,5 +1,5 @@
 {
     "variants": {
-		"": { "model": "infiniores:block/depleted_block_netherrack" }
+		  "": { "model": "infiniores:block/depleted_block_netherrack" }
     }
 }

@@ -1,5 +1,5 @@
 {
-    "parent": "infiniores:block/depleted_block_red_sandstone",
+    "parent": "infiniores:block/depleted_block_red_sandstone_chiseled",
 	"display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

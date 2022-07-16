@@ -1,5 +1,5 @@
 {
     "variants": {
-		"": { "model": "infiniores:block/depleted_block_red_sand" }
+		  "": { "model": "infiniores:block/depleted_block_red_sandstone" }
     }
 }

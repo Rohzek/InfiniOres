@@ -2,6 +2,6 @@
   "parent": "block/cube_column",
   "textures": {
     "end": "infiniores:blocks/depleted_block_wood_top",
-    "side": "infiniores:blocks/depleted_block_logs"
+    "side": "infiniores:blocks/depleted_block_wood_side"
   }
 }
